@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(34, 40, 49);
+    color: rgb(238, 238, 238);
+  }
+  
+  .login_container {
+      width: 33%;
+      margin: 15% auto;
+      text-align: center;
+      padding: 1%;
+      background-color: rgb(255, 211, 105, 0.7);
+      box-shadow: 0 0 10px rgb(237, 234, 222, 0.2);
+      border-radius: 10px;
+    }
+    
+    h1 {
+      font-size: 36px;
+    }
+  
+    #input_username {
+      color: aqua;
+    }
