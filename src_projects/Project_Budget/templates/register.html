@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Registerpls</title>
-    <link rel="stylesheet" type="text/css" href="register_css.css">
-    <script src="register_js.js"></script>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
   </head>
   <body>
     <div class="login_container">
-      <h1>Register Here</h1>
+      <h1 class="center">Register Here</h1>
       <form>
+        <!--username-->
         <label for="username">Username</label><br>
-        <input type="text" id="username" name="username"><br>
+        <input type="text" name="username" id="login" placeholder="Username"><br><br>
+        <!--e-mail-->
         <label for="email">E-mail</label><br>
-        <input type="email" id="email" name="email"><br>
+        <input type="email" name="email" id="login" placeholder="E-mail"><br><br>
+        <!--password-->
         <label for="password">Password</label><br>
-        <input type="password" id="password" name="password"><br>
-        <label for="confirm_password">Re-enter Password</label><br>
-        <input type="password" id="confirm_password" name="confirm_password"><br>
-        <input type="submit" value="Submit"><br>
+        <input type="password" name="password" id="login" placeholder="Password"><br><br>
+        <!--re-enter_password-->
+        <label for="confirm_password">Confirm Password</label><br>
+        <input type="password" name="confirm_password" id="login" placeholder="Re-Enter Password"><br><br>
+        <!--submit-->
+        <input id="login_submit" type="submit" value="Register" name="submit"><br>
       </form>
     </div>
   </body>
