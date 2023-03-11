@@ -15,7 +15,7 @@ body {
     background-color: rgb(57, 62, 70, 0.7);
     box-shadow: 0 0 10px rgb(237, 234, 222, 0.2);
     border-radius: 10px;
-    padding-bottom: 2vh;
+    padding: 2vh;
   }
   
   input {
@@ -32,6 +32,29 @@ body {
   h1 {
     font-size: 46px;
   }
+
+  a {
+    width: 33%;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    text-decoration: none;
+    color: #333;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.3);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  a:hover {
+    background-color: #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,.3);
+  }
+  
+  a:active {
+    transform: translateY(1px);
+  }  
 
   .center {
     text-align: center;
@@ -80,4 +103,12 @@ body {
 
   #login:focus {
     outline: none;
+  }
+
+  .img-money {
+    position: relative;
+    left: 60%;
+    width: 10%;
+    height: 10%;
+    margin-top: 4%;
   }
