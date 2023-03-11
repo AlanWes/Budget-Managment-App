@@ -6,6 +6,8 @@
     <script src="script.js"></script>
   </head>
   <body>
+    {% load static %}
+    <img src="{% static 'Project_Budget/money.png' %}" alt="Money icons created by Smashicons - Flaticon" class="img-money">
     <div class="login_container">
       <h1 class="center">Register Here</h1>
       <form>
@@ -22,7 +24,9 @@
         <label for="confirm_password">Confirm Password</label><br>
         <input type="password" name="confirm_password" id="login" placeholder="Re-Enter Password"><br><br>
         <!--submit-->
-        <input id="login_submit" type="submit" value="Register" name="submit"><br>
+        <input id="login_submit" type="submit" value="Register" name="submit"><br><br>
+        <!--I_have_acc-->
+        <a href="login.html">I have account</a>
       </form>
     </div>
   </body>
