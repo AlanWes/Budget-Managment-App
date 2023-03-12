@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="login_css.css">
+    <script src="login_js.js"></script>
+  </head>
+  <body>
+    {% load static %}
+    <img src="{% static 'Project_Budget/money.png' %}" alt="Money icons created by Smashicons - Flaticon" class="img-money">
+    <div class="login_container">
+      <h1 class="center">Login Here</h1>
+      <form>
+        <!--username-->
+        <label for="username">Username</label><br>
+        <input type="text" name="username" id="login" placeholder="Username"><br><br>
+        <!--password-->
+        <label for="password">Password</label><br>
+        <input type="password" name="password" id="login" placeholder="Password"><br><br>
+        <!--re-enter_password-->
+        <label for="confirm_password">Confirm Password</label><br>
+        <input type="password" name="confirm_password" id="login" placeholder="Re-Enter Password"><br><br>
+        <!--submit-->
+        <input id="login_submit" type="submit" value="Register" name="submit"><br><br>
+        <!--register-->
+        <a href="register.html">Register</a>
+      </form>
+    </div>
+  </body>
+</html>
