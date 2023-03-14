@@ -1,19 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Register</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register_css.css' %}">
+    <script src="{% static 'js/register_js.js' %}"></script>
   </head>
   <body>
-    {% load static %}
-    <img src="{% static 'Project_Budget/money.png' %}" alt="Money icons created by Smashicons - Flaticon" class="img-money">
+    <img src="{% static 'images/money.png' %}" alt="Money icons created by Smashicons - Flaticon" class="img-money">
     <div class="login_container">
       <h1 class="center">Register Here</h1>
       <form>
         <!--username-->
         <label for="username">Username</label><br>
-        <input type="text" name="username" id="login" placeholder="Username"><br><br>
+        <input type="text" name="username" id="login" placeholder="Username" autocomplete="off"><br><br>
         <!--e-mail-->
         <label for="email">E-mail</label><br>
         <input type="email" name="email" id="login" placeholder="E-mail"><br><br>
@@ -26,7 +26,7 @@
         <!--submit-->
         <input id="login_submit" type="submit" value="Register" name="submit"><br><br>
         <!--I_have_acc-->
-        <a href="login.html">I have account</a>
+        <a href="{% url 'login' %}">I have account</a>
       </form>
     </div>
   </body>

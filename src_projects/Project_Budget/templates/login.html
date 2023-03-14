@@ -1,14 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="login_css.css">
-    <script src="login_js.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login_css.css' %}">
+    <script src="{% static 'js/login_js.js' %}"></script>
   </head>
   <body>
-    {% load static %}
-    <img src="{% static 'Project_Budget/money.png' %}" alt="Money icons created by Smashicons - Flaticon" class="img-money">
-    <div class="login_container">
+    <img src="{% static 'images/money.png' %}" alt="Money icons created by Smashicons - Flaticon" class="img-money">
+    <div class="    login_container">
       <h1 class="center">Login Here</h1>
       <form>
         <!--username-->
@@ -21,9 +21,9 @@
         <label for="confirm_password">Confirm Password</label><br>
         <input type="password" name="confirm_password" id="login" placeholder="Re-Enter Password"><br><br>
         <!--submit-->
-        <input id="login_submit" type="submit" value="Register" name="submit"><br><br>
+        <input id="login_submit" type="submit" value="Login" name="submit"><br><br>
         <!--register-->
-        <a href="register.html">Register</a>
+        <a href="{% url 'signup' %}">Register Here</a>
       </form>
     </div>
   </body>
