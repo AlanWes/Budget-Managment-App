@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
-  <head lang="en">
+<html lang="en">
+  <head>
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/register_css.css' %}">
     <script src="{% static 'js/register_js.js' %}"></script>
@@ -28,6 +28,9 @@
         <input id="login_submit" type="submit" value="Register" name="register_submit"><br><br>
         <!--I_have_acc-->
         <a href="{% url 'login' %}">I have account</a>
+        {% if error_message %}
+          <p class="error-message">{{ error_message }}</p>
+        {% endif %}
       </form>
     </div>
   </body>
