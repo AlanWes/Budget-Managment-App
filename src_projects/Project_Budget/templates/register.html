@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
+  <head lang="en">
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/register_css.css' %}">
     <script src="{% static 'js/register_js.js' %}"></script>
@@ -10,7 +10,8 @@
     <img src="{% static 'images/money.png' %}" alt="Money icons created by Smashicons - Flaticon" class="img-money">
     <div class="login_container">
       <h1 class="center">Register Here</h1>
-      <form>
+      <form action="" method="post">
+        {% csrf_token %}
         <!--username-->
         <label for="username">Username</label><br>
         <input type="text" name="username" id="login" placeholder="Username" autocomplete="off"><br><br>
@@ -24,7 +25,7 @@
         <label for="confirm_password">Confirm Password</label><br>
         <input type="password" name="confirm_password" id="login" placeholder="Re-Enter Password"><br><br>
         <!--submit-->
-        <input id="login_submit" type="submit" value="Register" name="submit"><br><br>
+        <input id="login_submit" type="submit" value="Register" name="register_submit"><br><br>
         <!--I_have_acc-->
         <a href="{% url 'login' %}">I have account</a>
       </form>
