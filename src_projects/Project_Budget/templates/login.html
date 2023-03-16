@@ -11,6 +11,7 @@
     <div class="login_container">
       <h1 class="center">Login</h1>
       <form>
+        {% csrf_token %}
         <!--username-->
         <label for="username">Username</label><br>
         <input type="text" name="username" id="login" placeholder="Username"><br><br>
@@ -24,6 +25,13 @@
         <input id="login_submit" type="submit" value="Login" name="login_submit"><br><br>
         <!--register-->
         <a href="{% url 'signup' %}">Register Here</a>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
       </form>
     </div>
   </body>
