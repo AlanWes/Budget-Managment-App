@@ -2,14 +2,14 @@ body {
   font-family: "Open Sans", sans-serif;
   background-color: rgb(34, 40, 49);
   color: rgb(238, 238, 238);
-  margin: auto;
+  margin: 0 auto;
 }
 
 .error-message {
   color: #cc0000;
   font-size: 15px;
   text-align: center;
-}
+} 
 
 .login_container {
     position: absolute;
@@ -33,7 +33,7 @@ body {
   label {
     font-size: 20px;
     padding-left: 8%;
-  }
+  } 
 
   h1 {
     font-size: 46px;
@@ -94,7 +94,7 @@ body {
     padding-left: 2vh;
     width: 80%;
     height: 4vh;
-    font-size: 20px;
+    font-size: 18px;
     background-color: rgb(253,253,253, 0.8);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -108,7 +108,17 @@ body {
 
   #login:focus {
     outline: none;
+    border: 1px solid rgb(255, 211, 105);
   }
+
+  #login::placeholder {
+    font-size: 18px;
+  }
+
+  #login:focus::placeholder {
+    opacity: 0.8;
+  }
+  
 
   .img-money {
     position: relative;
