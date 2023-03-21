@@ -1,6 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
 # Create your views here.
@@ -14,6 +13,7 @@ def SignupPage(request):
         email=request.POST.get('email')
         password=request.POST.get('password')
         c_password=request.POST.get('confirm_password')
+        # Validation
         if password==c_password:
             if len(password) < 8:
                 return render(request, 'register.html', {'error_message': 'Password must contain at least 8 characters.'})
