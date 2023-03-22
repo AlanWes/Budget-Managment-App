@@ -32,4 +32,7 @@ def SignupPage(request):
     return render (request,'register.html')
 
 def LoginPage(request):
-    return render (request,'login.html')
+    if request.method=='POST':
+        return redirect('home')
+    else:   
+        return render (request,'login.html')

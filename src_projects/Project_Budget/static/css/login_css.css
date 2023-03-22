@@ -127,3 +127,12 @@ body {
     height: 10%;
     margin-top: 4%;
   }
+
+  .must_contain {
+    font-size: 10px;
+    opacity: 0.8;
+    padding-left: 8%;
+    max-width: 80%;
+    margin: 0%;
+    text-decoration: underline;
+  }

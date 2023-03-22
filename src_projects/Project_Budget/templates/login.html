@@ -10,17 +10,15 @@
     <img src="{% static 'images/money.png' %}" alt="Money icons created by Smashicons - Flaticon" class="img-money">
     <div class="login_container">
       <h1 class="center">Login</h1>
-      <form>
+      <form action="" method="post">
         {% csrf_token %}
         <!--username-->
         <label for="username">Username</label><br>
         <input type="text" name="username" id="login" placeholder="Username"><br><br>
         <!--password-->
         <label for="password">Password</label><br>
-        <input type="password" name="password" id="login" placeholder="Password"><br><br>
-        <!--re-enter_password-->
-        <label for="confirm_password">Confirm Password</label><br>
-        <input type="password" name="confirm_password" id="login" placeholder="Re-Enter Password"><br><br>
+        <input type="password" name="password" id="login" placeholder="Password">
+        <p class="must_contain" href="">I don't remember a password.</p><br>
         <!--submit-->
         <input id="login_submit" type="submit" value="Login" name="login_submit"><br><br>
         <!--Login-->
