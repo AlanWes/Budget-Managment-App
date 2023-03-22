@@ -1,7 +1,7 @@
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: rgb(34, 40, 49);
   color: rgb(238, 238, 238);
+  background-color: rgb(34, 40, 49);
   margin: 0 auto;
 }
 
@@ -12,21 +12,15 @@ body {
 } 
 
 .login_container {
-    /* Position */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* Padding */
     padding: 2vh;
-    /* Margin */
     margin: 0 auto;
-    /* Border */
     box-shadow: 0 0 10px rgb(237, 234, 222, 0.2);
     border-radius: 10px;
-    /* Width / Height */
     width: 25%;
-    /* Background Color */
     background-color: rgb(57, 62, 70, 0.7);
   }
   
