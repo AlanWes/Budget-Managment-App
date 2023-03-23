@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth import authenticate,login
 
 # Create your views here.
 
@@ -33,6 +34,13 @@ def SignupPage(request):
 
 def LoginPage(request):
     if request.method=='POST':
-        return redirect('home')
-    else:   
-        return render (request,'login.html')
+        username=request.POST.get('username')
+        password=request.POST.get('login_pass')
+        user=authenticate(request,username=username,password=password)
+        if user is not None:
+            login(request,user)
+            return redirect('home')
+        else:
+            return render(request, 'login.html', {'error_message': 'Username or Password is incorrect.'})
+       
+    return render (request,'login.html')
