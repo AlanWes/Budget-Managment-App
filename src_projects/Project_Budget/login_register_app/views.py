@@ -1,9 +1,10 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+@login_required(login_url='login')
 
 def HomePage(request):
     return render (request,'home.html')
@@ -44,3 +45,7 @@ def LoginPage(request):
             return render(request, 'login.html', {'error_message': 'Username or Password is incorrect.'})
        
     return render (request,'login.html')
+
+def LogoutPage(request):
+    logout(request)
+    return redirect('login')

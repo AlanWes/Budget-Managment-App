@@ -7,8 +7,7 @@
         <script src="{% static 'js/home_js.js' %}"></script>
     </head>
     <body>
-        {% csrf_token %}
         Welcome!
+        <a href="{% url 'logout' %}" class="logout_button">Logout</a>
     </body>
 </html>
-<!--<a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>-->
