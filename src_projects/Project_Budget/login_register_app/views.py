@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='login')
 
 def HomePage(request):
-    return render (request,'home.html')
+    return render (request,'master.html')
 
 def SignupPage(request):
     if request.method=='POST':
