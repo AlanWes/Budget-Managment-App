@@ -12,19 +12,21 @@ body {
   font-weight: 400;
 }
 
-header {
-  background-color: black;
-}
-
 /* CLASSES */
 
+.container {
+  max-width: 100%;
+  overflow: hidden;
+}
+
 .navbar {
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 10vh;
   width: 100vw;
+  max-width: 100%;
   background-color: rgb(20, 195, 142);
   background-size: cover;
   box-sizing: border-box;
@@ -52,6 +54,47 @@ header {
   right: 20px;
   width: 60px;
 }
+
+.section-1 {
+  position: flex;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(227, 252, 191);
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.section-2 {
+  position: flex;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(255,250,250);
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.section-3 {
+  position: flex;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(227, 252, 191);
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.footer {
+  position: flex;
+  display: flex;
+  height: 40vh;
+  width: 100vw;
+  background-color: rgb(20, 195, 142);
+  background-size: cover;
+  box-sizing: border-box;
+}
+
 
 @media screen and (min-width: 781px) {
 
@@ -91,6 +134,7 @@ header {
 
   .nav-links.mobile-menu {
     margin-left: 0;
+    transition: all 0.5s ease;
   }
 
   .nav-links ul {
