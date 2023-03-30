@@ -4,12 +4,10 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
-@login_required(login_url='login')
-
-def HomePage(request):
+def MasterPage(request):
     return render (request,'master.html')
 
-def SignupPage(request):
+def RegisterPage(request):
     if request.method=='POST':
         uname=request.POST.get('username')
         email=request.POST.get('email')
@@ -46,6 +44,10 @@ def LoginPage(request):
        
     return render (request,'login.html')
 
+@login_required(login_url='login')
+def HomePage(request):
+    return render (request,'home.html')
+
 def LogoutPage(request):
     logout(request)
-    return redirect('login')
+    return redirect('master')

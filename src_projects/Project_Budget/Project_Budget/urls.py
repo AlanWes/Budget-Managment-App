@@ -22,8 +22,9 @@ from login_register_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # App Paths
-    path('',views.SignupPage,name='signup'),
+    path('',views.MasterPage,name='master'),
     path('login/',views.LoginPage,name='login'),
+    path('register/',views.RegisterPage,name='register'),
     path('home/',views.HomePage,name='home'),
     path('logout/',views.LogoutPage,name='logout'),
 ]
