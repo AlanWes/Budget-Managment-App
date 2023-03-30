@@ -22,7 +22,7 @@
         <!--submit-->
         <button id="login_submit" type="submit">Login</button><br><br>
         <!--Login-->
-        <a href="{% url 'signup' %}">Register Here</a>
+        <a href="{% url 'register' %}">Register Here</a>
         {% if error_message %}
           <p class="error-message">{{ error_message }}</p>
         {% endif %}
