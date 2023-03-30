@@ -30,6 +30,7 @@ body {
   background-color: rgb(20, 195, 142);
   background-size: cover;
   box-sizing: border-box;
+  z-index: 999;
 }
 
 .navbar a {
@@ -75,6 +76,23 @@ body {
   background-color: rgb(227, 252, 191);
   background-size: cover;
   box-sizing: border-box;
+}
+
+.section-1 p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.section-1 .p-1 {
+  font-family: Poppins Italic;
+  font-weight: 700;
+  font-size: 3em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255,250,250);
+  text-shadow: 1px 1px 0 #14C38E, -1px -1px 0 #14C38E, 1px -1px 0 #14C38E, -1px 1px 0 #14C38E;
 }
 
 .first-view-background {
@@ -160,6 +178,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .section-1 .p-1 {
+    font-size: 2em;
   }
 
 }
