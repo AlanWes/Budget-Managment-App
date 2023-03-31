@@ -15,7 +15,6 @@ body {
 /* CLASSES */
 
 .container {
-  max-width: 100%;
   overflow: hidden;
 }
 
@@ -27,10 +26,15 @@ body {
   height: 10vh;
   width: 100vw;
   max-width: 100%;
-  background-color: rgb(20, 195, 142);
+  background-color: rgb(20, 195, 142, 0);
+  transition: background-color 0.5s ease-in-out;
   background-size: cover;
   box-sizing: border-box;
   z-index: 999;
+}
+
+.navbar.scrolled {
+  background-color: rgb(20, 195, 142, 1);
 }
 
 .navbar a {
@@ -69,7 +73,6 @@ body {
 /* SECTIONS */
 
 .section-1 {
-  position: flex;
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -81,7 +84,7 @@ body {
 .section-1 p {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 50%; 
 }
 
 .section-1 .p-1 {
@@ -103,7 +106,6 @@ body {
 }
 
 .section-2 {
-  position: flex;
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -113,7 +115,6 @@ body {
 }
 
 .section-3 {
-  position: flex;
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -123,7 +124,6 @@ body {
 }
 
 .footer {
-  position: flex;
   display: flex;
   height: 40vh;
   width: 100vw;
@@ -132,6 +132,7 @@ body {
   box-sizing: border-box;
 }
 
+/* MEDIA */
 
 @media screen and (min-width: 781px) {
 
@@ -182,6 +183,10 @@ body {
 
   .section-1 .p-1 {
     font-size: 2em;
+  }
+
+  .first-view-background {
+    object-position: 30%;
   }
 
 }
