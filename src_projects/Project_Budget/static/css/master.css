@@ -2,7 +2,8 @@
 
 :root {
   --background-image: url('/static/images/first-view.png');
-  --waves: url('/static/images/waves.png')
+  --waves: url('/static/images/waves.png');
+  --waves2: url('/static/images/waves2.png');
 }
 
 /* CHANGE
@@ -149,7 +150,6 @@ body {
   background-image: var(--waves);
   background-size: cover;
   background-position: center;
-  object-fit: cover;
 }
 
 .section-2 .second-view {
@@ -193,8 +193,8 @@ body {
 
 .section-2 .second-view h2 {
   color: rgb(0, 255, 171);
-  text-shadow: 2px 0px 1px rgba(13, 125, 90, 0.5);
-  font-weight: 600;
+  text-shadow: 3px 0px 1px rgba(13, 125, 90, 0.5);
+  font-weight: 500;
 }
 
 .section-2 .second-view .description {
@@ -207,7 +207,6 @@ body {
   text-align: center;
   font-weight: 400;
   padding: 1em;
-  background-color: rgb(0, 0, 0, 0.2);
 }
 
 .section-2 .second-view .description p {
@@ -220,9 +219,50 @@ body {
   display: flex;
   height: 100vh;
   width: 100vw;
-  background-color: rgb(227, 252, 191);
-  background-size: cover;
   box-sizing: border-box;
+  background-color: rgb(227, 252, 191);
+  background-image: var(--waves2);
+  background-size: cover;
+  background-position: center;
+}
+
+.section-3 .third-view {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.section-3 .third-view .mobile-1 {
+  display: flex;
+  align-items: end;
+  justify-content: space-evenly;
+  height: 100vh;
+  width: 30vw;
+}
+
+.section-3 .third-view .mobile-1 img {
+  width: 33em;
+  height: 70vh;
+}
+
+.section-3 .third-view .mobile-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 30vw;
+} 
+
+.section-3 .third-view .mobile-2 .android-ios {
+
+}
+
+.section-3 .third-view .mobile-2 .android-ios img {
+  width: 12em;
+  height: 9em;
 }
 
 /* FOOTER */
@@ -244,6 +284,28 @@ body {
   display: none;
 }
 
+}
+
+@media screen and (max-width: 950px) {
+  /* SECTION 2 */
+
+  .section-2 .second-view .description {
+    width: 12.3em;
+    height: 12.3em;
+    padding: 0.8em;
+  }
+
+  .section-2 .second-view .description p {
+    font-size: 0.8em;
+  }
+
+  .section-2 .second-view img {
+    width: 8em;
+  }
+
+  .section-2 .second-view h2 {
+    font-weight: 500;
+  }
 }
 
 @media screen and (max-width: 780px) {
@@ -325,6 +387,63 @@ body {
     width: 5em;
   }
 
+  .section-2 .second-view h2 {
+    display: none;
+  }
+
+  .section-2 .second-view .description {
+    width: 9em;
+    height: 8em;
+    padding: 0.6em;
+  }
+
+  .section-2 .second-view .description p {
+    font-size: 0.6em;
+  }
+
+  .section-2 .second-view img {
+    width: 4em;
+  }
+
+  /* CHANGE TO COLUMN */
+
+  .section-2 .second-view {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: auto;
+    box-sizing: border-box;
+  }
+
+  .section-2 .object-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+    width: 100vw;
+  }
+  
+  .section-2 .object-2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+    width: 100vw;
+  }
+  
+  .section-2 .object-3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+    width: 100vw;
+  }
   /* SECTION 3 */
+
+
+
   /* FOOTER */
 }
