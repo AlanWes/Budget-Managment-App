@@ -451,15 +451,16 @@ footer .contact {
   }
   
   .section-3 .third-view .mobile-1 img {
-    height: 45vh;
-    width: 80vw;
+    height: 400px;
+    width: 280px;
+    max-height: 50vh;
   }
   
   .section-3 .third-view .mobile-2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     height: 50vh;
     width: 100vw;
   } 
@@ -469,15 +470,35 @@ footer .contact {
     text-align: center;
     padding: 0.6em;
     font-size:medium;
-    padding-top: 5em;
+    padding-top: 3em;
   }
   
   .section-3 .third-view .mobile-2 .android-ios img {
-    width: 8em;
-    height: 5em;
+    width: 150px;
+    height: 100px;
   }
 
   /* FOOTER */
+
+  footer {
+    height: 20vh;
+    width: 100vw;
+    font-size: 0.5em;
+  }
+  
+  footer .policy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 320px;
+  }
+  
+  footer .contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 320px;
+  }
 
 }
 
@@ -527,34 +548,154 @@ footer .contact {
 
   /* SECTION 1 */
 
+  .section-1 {
+    background-position: 30%;
+  }
+
+  .section-1 .text-1 {
+    padding-top: 10em;
+  }
+
+  .section-1 p {
+    text-align: center;
+  }
+  
+  .section-1 .p-1 {
+    font-weight: 600;
+    font-size: 2.8em;
+    color: rgb(255,250,250);
+    text-shadow: 4px 0px 1px rgba(13, 125, 90, 1);
+  }
+  
+  .section-1 .p-2 {
+    font-weight: 500;
+    font-size: 1.6em;
+    color: rgb(255,250,250);
+    text-shadow: 3px 0px 1px rgba(13, 125, 90, 1);
+  }
+
   /* SECTION 2 */
 
+  .section-2 .second-view h2 {
+    display: none;
+  }
+
   .section-2 .second-view .description {
-    width: 12.3em;
-    height: 12.3em;
-    padding: 0.8em;
+    width: 10em;
+    height: 9em;
+    padding: 0.6em;
   }
 
   .section-2 .second-view .description p {
-    font-size: 0.8em;
+    font-size: 0.65em;
   }
 
   .section-2 .second-view img {
     width: 8em;
   }
 
-  .section-2 .second-view h2 {
-    font-weight: 500;
+  .section-2 .second-view {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: auto;
+    box-sizing: border-box;
+  }
+
+  .section-2 .object-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+    width: 100vw;
+  }
+  
+  .section-2 .object-2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+    width: 100vw;
+  }
+  
+  .section-2 .object-3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+    width: 100vw;
   }
 
   /* SECTION 3 */
-
-  .section-3 .third-view .mobile-1 img {
+  
+  .section-3 .third-view {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    margin: auto;
+    box-sizing: border-box;
+  }
+  
+  .section-3 .third-view .mobile-1 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     height: 50vh;
-    width: 50vw;
+    width: 100vw;
+  }
+  
+  .section-3 .third-view .mobile-1 img {
+    height: 481px;
+    width: 320px;
+    max-height: 50vh;
+  }
+  
+  .section-3 .third-view .mobile-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 50vh;
+    width: 100vw;
+  } 
+  
+  .section-3 .third-view .mobile-2 .text-android-ios {
+    width: 100%;
+    text-align: center;
+    padding: 0.6em;
+    font-size:large;
+    padding-top: 3em;
+  }
+  
+  .section-3 .third-view .mobile-2 .android-ios img {
+    width: 200px;
+    height: 150px;
   }
 
   /* FOOTER */
+
+  footer {
+    height: 20vh;
+    width: 100vw;
+    font-size: 0.65em;
+  }
+  
+  footer .policy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 481px;
+  }
+  
+  footer .contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 481px;
+  }
 
 }
 
