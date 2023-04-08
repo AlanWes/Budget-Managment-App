@@ -502,9 +502,9 @@ footer .contact {
 
 }
 
-/* ####################################### TABLET 481px — 768px ####################################### */
+/* ####################################### PORTRAIT TABLET 481px — 767px ####################################### */
 
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 481px) and (max-width: 767px) {
 
   /* NAVBAR */
 
@@ -549,7 +549,7 @@ footer .contact {
   /* SECTION 1 */
 
   .section-1 {
-    background-position: 30%;
+    background-position: 27.5%;
   }
 
   .section-1 .text-1 {
@@ -672,7 +672,7 @@ footer .contact {
   
   .section-3 .third-view .mobile-2 .android-ios img {
     width: 200px;
-    height: 150px;
+    height: 130px;
   }
 
   /* FOOTER */
@@ -699,42 +699,320 @@ footer .contact {
 
 }
 
-/* ###################################### LAPTOPS 769px — 1024px ###################################### */
+/* ###################################### LANDSCAPE TABLET 768px — 1023px ###################################### */
 
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   
   .menu-btn {
     display: none;
   }
 
-  /* NAVBAR */
   /* SECTION 1 */
+
+  .section-1 {
+    background-position: 40%;
+  }
+
+  .section-1 p {
+    text-align: center;
+  }
+  
+  .section-1 .p-1 {
+    font-weight: 600;
+    font-size: 3em;
+    color: rgb(255,250,250);
+    text-shadow: 4px 0px 1px rgba(13, 125, 90, 1);
+  }
+  
+  .section-1 .p-2 {
+    font-weight: 500;
+    font-size: 1.8em;
+    color: rgb(255,250,250);
+    text-shadow: 3px 0px 1px rgba(13, 125, 90, 1);
+  }
+
   /* SECTION 2 */
+
+  .section-2 .second-view h2 {
+    display: none;
+  }
+
+  .section-2 .second-view .description {
+    width: 10.5em;
+    height: 9.5em;
+    padding: 0.6em;
+  }
+
+  .section-2 .second-view .description p {
+    font-size: 0.7em;
+  }
+
+  .section-2 .second-view img {
+    width: 8em;
+  }
+
+  .section-2 .second-view {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: auto;
+    box-sizing: border-box;
+  }
+
+  .section-2 .object-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+    width: 100vw;
+  }
+  
+  .section-2 .object-2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+    width: 100vw;
+  }
+  
+  .section-2 .object-3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+    width: 100vw;
+  }
+
   /* SECTION 3 */
+  
+  .section-3 .third-view {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    margin: auto;
+    box-sizing: border-box;
+  }
+  
+  .section-3 .third-view .mobile-1 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 50vh;
+    width: 100vw;
+  }
+  
+  .section-3 .third-view .mobile-1 img {
+    height: 481px;
+    width: 320px;
+    max-height: 50vh;
+  }
+  
+  .section-3 .third-view .mobile-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 50vh;
+    width: 100vw;
+  } 
+  
+  .section-3 .third-view .mobile-2 .text-android-ios {
+    width: 100%;
+    text-align: center;
+    padding: 0.6em;
+    font-size:large;
+    padding-top: 3em;
+  }
+  
+  .section-3 .third-view .mobile-2 .android-ios img {
+    width: 200px;
+    height: 130px;
+  }
+
   /* FOOTER */
+
+  footer {
+    height: 20vh;
+    width: 100vw;
+    font-size: 0.65em;
+  }
+  
+  footer .policy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 481px;
+  }
+  
+  footer .contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 481px;
+  }
 
 }
 
 
-/* ##################################### DESKTOP 1025px — 1200px ###################################### */
+/* ##################################### DESKTOP 1024px — 1439px ###################################### */
 
-@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
   
   .menu-btn {
     display: none;
   }
 
-  /* NAVBAR */
   /* SECTION 1 */
+
+  .section-1 p {
+    text-align: center;
+  }
+  
+  .section-1 .p-1 {
+    font-weight: 600;
+    font-size: 3em;
+    color: rgb(255,250,250);
+    text-shadow: 4px 0px 1px rgba(13, 125, 90, 1);
+  }
+  
+  .section-1 .p-2 {
+    font-weight: 500;
+    font-size: 1.8em;
+    color: rgb(255,250,250);
+    text-shadow: 3px 0px 1px rgba(13, 125, 90, 1);
+  }
+
   /* SECTION 2 */
+
+  .section-2 .second-view h2 {
+    display: none;
+  }
+
+  .section-2 .second-view .description {
+    width: 12em;
+    height: 11em;
+    padding: 0.8em;
+  }
+
+  .section-2 .second-view .description p {
+    font-size: 0.8em;
+  }
+
+  .section-2 .second-view img {
+    width: 9em;
+  }
+
+  .section-2 .second-view {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: auto;
+    box-sizing: border-box;
+  }
+
+  .section-2 .object-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+    width: 100vw;
+  }
+  
+  .section-2 .object-2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+    width: 100vw;
+  }
+  
+  .section-2 .object-3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+    width: 100vw;
+  }
+
   /* SECTION 3 */
+  
+  .section-3 .third-view {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    margin: auto;
+    box-sizing: border-box;
+  }
+  
+  .section-3 .third-view .mobile-1 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 50vh;
+    width: 100vw;
+  }
+  
+  .section-3 .third-view .mobile-1 img {
+    height: 481px;
+    width: 320px;
+    max-height: 50vh;
+  }
+  
+  .section-3 .third-view .mobile-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 50vh;
+    width: 100vw;
+  } 
+  
+  .section-3 .third-view .mobile-2 .text-android-ios {
+    width: 100%;
+    text-align: center;
+    padding: 0.6em;
+    font-size:larger;
+    padding-top: 3em;
+  }
+  
+  .section-3 .third-view .mobile-2 .android-ios img {
+    width: 200px;
+    height: 130px;
+  }
+
   /* FOOTER */
+
+  footer {
+    height: 20vh;
+    width: 100vw;
+    font-size: 0.65em;
+  }
+  
+  footer .policy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 481px;
+  }
+  
+  footer .contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 481px;
+  }
 
 }
 
-/* ######################################## TV 1201px and more ######################################## */
+/* ######################################## LARGE DESKTOP ######################################## */
 
-@media only screen and (min-width: 1201px) {
+@media only screen and (min-width: 1440px) {
   
   .menu-btn {
     display: none;
