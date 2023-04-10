@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --background-image: url('/static/images/register-login.png');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins';
+  font-weight: 400;
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  overflow: hidden;
+}
+
+/* MAIN STYLE */
+
+/* CONTAINER */
+
+.reg-container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+/* BOX STYLE */
+
+.reg-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(14, 139, 102, 0.5);
+  padding: 2em;
+  border-radius: 1em;
+  color: rgb(255,250,250);
+  text-shadow: 2px 0px 1px rgba(13, 125, 90, 1);
+}
+
+.reg-box h1 {
+  font-size: 3em;
+  text-shadow: 3px 0px 1px rgba(13, 125, 90, 1);
+}
+
+/* FORM BOX STYLE */
+
+.reg-box .form-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.reg-box .form-box input {
+  margin-bottom: 0.5em;
+  padding: 1em;
+  border-radius: 1em;
+  border: rgb(255,250,250);
+  background-color: rgb(255,250,250);
+}
+
+.reg-box .form-box input:focus {
+  outline: solid 3px rgb(184, 241, 176);
+  background-color: rgb(255,250,250, 0.95);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.reg-box .form-box label {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+.reg-box .form-box a {
+  text-align: center;
+}
+
+.reg-box .form-box p {
+  font-size: 1em;
+  text-decoration: underline rgb(255,250,250) 1px;
+}
+
+/* SUBMIT BOX STYLE */
+
+.reg-box .sub-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reg-box .sub-box input {
+  font-size: 1em;
+  font-weight: 700;
+  background-color: rgb(0, 255, 171);
+  color: rgb(255,250,250);
+  border: rgb(255,250,250);
+}
+
+.reg-box .sub-box .register-sub:hover {
+  background-color: rgb(0, 255, 171, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.reg-box .sub-box a {
+  color: rgb(255,250,250);
+  text-decoration: underline rgb(255,250,250) 1px;
+}
+
+.reg-box .sub-box a:hover {
+  color: rgb(255,250,250, 0.8);
+}
+
+.reg-box .sub-box p {
+  color: #eb0000;
+  font-size: 1em;
+  text-align: center;
+  text-decoration: none;
+}
+
+.reg-box .sub-box .register-sub {
+  padding: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 200px;
+  border-radius: 1em;
+}

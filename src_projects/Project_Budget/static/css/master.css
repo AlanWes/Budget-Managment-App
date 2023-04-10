@@ -99,17 +99,17 @@ body {
 
 .section-1 .text-1 .anim-1 {
   opacity: 0;
-  animation: first-view-text 1s ease-out forwards;
+  animation: first-view-text 1.5s ease-out forwards;
 }
 
 .section-1 .text-1 .anim-2 {
   opacity: 0;
-  animation: first-view-text 1s ease-out 0.5s forwards;
+  animation: first-view-text 1.5s ease-out 0.3s forwards;
 }
 
 .section-1 .text-1 .anim-3 {
   opacity: 0;
-  animation: first-view-text 1s ease-out 1s forwards;
+  animation: first-view-text 1.5s ease-out 0.6s forwards;
 }
 
 @keyframes first-view-text {
@@ -117,9 +117,11 @@ body {
     opacity: 0;
     transform: translateY(1em);
   }
+  50% {
+    transform: translateY(0);
+  }
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
