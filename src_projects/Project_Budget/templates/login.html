@@ -1,39 +1,47 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/login_css.css' %}">
-    <script src="{% static 'js/login_js.js' %}"></script>
-  </head>
-  <body>
-    <img src="{% static 'images/money.png' %}" alt="Money icons created by Smashicons - Flaticon" class="img-money">
-    <div class="login_container">
-      <h1 class="center">Login</h1>
+<head>
+  <title>Turtle Spend</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+</head>
+ <body>
+  <div class="reg-container">
+    <div class="reg-box">
+      <h1>Login</h1>
       <form action="" method="post">
         {% csrf_token %}
-        <!--username-->
-        <label for="username">Username</label><br>
-        <input type="text" name="username" id="login" placeholder="Username" required><br><br>
-        <!--password-->
-        <label for="password">Password</label><br>
-        <input type="password" name="login_pass" id="login" placeholder="Password" required>
-        <p class="must_contain" href="">I don't remember a password.</p><br>
-        <!--submit-->
-        <button id="login_submit" type="submit">Login</button><br><br>
-        <!--Login-->
-        <a href="{% url 'register' %}">Register Here</a>
-        {% if error_message %}
-          <p class="error-message">{{ error_message }}</p>
-        {% endif %}
-        {% if messages %}
-        <ul class="messages">
+        <div class="form-box">
+          <!--username-->
+          <label for="username">Username</label>
+          <input type="text" name="username" placeholder="Username" required>
+          <!--password-->
+          <label for="password">Password</label>
+          <input id="password" type="password" name="login_pass" placeholder="Password" required>        
+        </div>
+        <div class="sub-box">
+          <!--Login-->
+          <input class="register-sub" type="submit" value="Login" name="login_submit">
+          <!--I_have_acc-->
+          <a href="{% url 'register' %}">Register here</a>
+          <a href="{% url 'master' %}">Back to welcome site</a>
+          {% if error_message %}
+              <p class="error-message">{{ error_message }}</p>
+          {% endif %}
+          {% if messages %}
+          <ul class="messages">
             {% for message in messages %}
                 <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
             {% endfor %}
-        </ul>
-        {% endif %}
+          </ul>
+          {% endif %}
+        </div>
       </form>
     </div>
-  </body>
+  </div>
+  <script src="{% static 'js/login_js.js' %}"></script>
+ </body>
 </html>
