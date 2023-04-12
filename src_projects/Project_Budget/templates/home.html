@@ -2,14 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Turtle Spend</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/master.css' %}">
-    <title>Turtle Spend</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
 </head>
 <body>
-    {% csrf_token %}
     <div class="container">
         <nav class="navbar">
             <img src="{% static 'images/logo.png' %}" class="logo">
@@ -24,11 +23,15 @@
             </div>
             <img src="{% static 'images/menu-btn.png' %}" class="menu-btn">
         </nav>
-        <div class="section-1">
-            <img src="{% static 'images/first-view-background.png' %}" class="first-view-background">
+        <div class="manage-section">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <h1>Your budget: {{ user_budget }}</h1>
+                <input type="number" name="update_budget" placeholder="New money transfer" required>
+            </form>
         </div>
     </div>
     <!--JS-->
-    <script src="{% static 'js/master.js' %}"></script>
+    <script src="{% static 'js/home.js' %}"></script>
 </body>
 </html>
