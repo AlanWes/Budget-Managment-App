@@ -58,6 +58,7 @@ body {
 .reg-box .form-box {
   display: flex;
   flex-direction: column;
+  min-width: 25vw;
 }
 
 .reg-box .form-box input {
@@ -76,7 +77,7 @@ body {
 
 .reg-box .form-box label {
   margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.25em;
   font-weight: 500;
   font-size: 1.2em;
 }
@@ -97,6 +98,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 25vw;
 }
 
 .reg-box .sub-box input {

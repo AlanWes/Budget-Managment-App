@@ -1,8 +1,11 @@
-from django.shortcuts import render,HttpResponse,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
+
+user_budget = 0
 
 def MasterPage(request):
     return render (request,'master.html')
@@ -46,7 +49,13 @@ def LoginPage(request):
 
 @login_required(login_url='login')
 def HomePage(request):
-    return render (request,'home.html')
+    global user_budget
+
+    if request.method == 'POST':
+        new_transfer = int(request.POST.get('update_budget'))
+        user_budget += new_transfer
+
+    return render(request, 'home.html', {'user_budget': user_budget})
 
 def LogoutPage(request):
     logout(request)

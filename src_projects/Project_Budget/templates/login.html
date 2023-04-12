@@ -20,13 +20,14 @@
           <input type="text" name="username" placeholder="Username" required>
           <!--password-->
           <label for="password">Password</label>
-          <input id="password" type="password" name="login_pass" placeholder="Password" required>        
+          <input id="password" type="password" name="login_pass" placeholder="Password" required>
+          <p href="#">Forgot a password?</p>    
         </div>
         <div class="sub-box">
           <!--Login-->
           <input class="register-sub" type="submit" value="Login" name="login_submit">
           <!--I_have_acc-->
-          <a href="{% url 'register' %}">Register here</a>
+          <a href="{% url 'register' %}">Create your account</a>
           <a href="{% url 'master' %}">Back to welcome site</a>
           {% if error_message %}
               <p class="error-message">{{ error_message }}</p>
@@ -42,6 +43,7 @@
       </form>
     </div>
   </div>
+  <!--JS-->
   <script src="{% static 'js/login_js.js' %}"></script>
  </body>
 </html>

@@ -23,8 +23,8 @@
             <input type="email" name="email" placeholder="E-mail" required>
             <!--password-->
             <label for="password">Password</label>
-            <input id="password" type="password" name="password" placeholder="Password" required>        
-            <p class="must_contain">Password must contain at least: 8 characters, 1 number, 1 uppercase.</p>
+            <input type="password" name="password" placeholder="Password" required>        
+            <p>Password must contain at least: 8 characters, 1 number, 1 uppercase.</p>
             <!--re-enter_password-->
             <label for="confirm_password">Confirm Password</label>
             <input type="password" name="confirm_password" placeholder="Re-Enter Password" required>
@@ -33,7 +33,7 @@
             <!--Register-->
             <input class="register-sub" type="submit" value="Register" name="register_submit">
             <!--I_have_acc-->
-            <a href="{% url 'login' %}">I have account</a>
+            <a href="{% url 'login' %}">I have an account</a>
             <a href="{% url 'master' %}">Back to welcome site</a>
               {% if error_message %}
                 <p>{{ error_message }}</p>
@@ -42,6 +42,7 @@
         </form>
       </div>
     </div>
+    <!--JS-->
     <script src="{% static 'js/register.js' %}"></script>
   </body>
 </html>
