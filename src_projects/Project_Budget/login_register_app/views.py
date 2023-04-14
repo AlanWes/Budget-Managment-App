@@ -1,11 +1,10 @@
 from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth.models import User
+from login_register_app.models import Profile
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
-
-user_budget = 0
 
 def MasterPage(request):
     return render (request,'master.html')
@@ -16,6 +15,7 @@ def RegisterPage(request):
         email=request.POST.get('email')
         password=request.POST.get('password')
         c_password=request.POST.get('confirm_password')
+        money=request.POST.get('money')
         # Validation
         if password==c_password:
             if len(password) < 8:
@@ -25,9 +25,12 @@ def RegisterPage(request):
             elif not any(char.isupper() for char in password):
                 return render(request, 'register.html', {'error_message': 'Password must contain at least one uppercase character.'})
             else:
-                my_user=User.objects.create_user(uname, email, password)
-                my_user.save()
-                messages.success(request, 'Your account has been created successfully!')
+                try:
+                    money = float(money)
+                except ValueError:
+                    return render(request, 'register.html', {'error_message': 'Invalid money value.'})
+                user = User.objects.create_user(username=uname, email=email, password=password)
+                profile = Profile.objects.create(user=user, money=money)
                 return redirect('login')
         else:
             return render(request, 'register.html', {'error_message': "Those passwords didn't match. Try again."})
@@ -49,13 +52,10 @@ def LoginPage(request):
 
 @login_required(login_url='login')
 def HomePage(request):
-    global user_budget
+    user_profile = Profile.objects.get(user=request.user)
+    money = user_profile.money
 
-    if request.method == 'POST':
-        new_transfer = int(request.POST.get('update_budget'))
-        user_budget += new_transfer
-
-    return render(request, 'home.html', {'user_budget': user_budget})
+    return render(request, 'home.html', {'money': money})
 
 def LogoutPage(request):
     logout(request)
