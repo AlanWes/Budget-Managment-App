@@ -26,7 +26,7 @@
         <div class="manage-section">
             <form action="" method="POST">
                 {% csrf_token %}
-                <h1>Your budget: {{ user_budget }}</h1>
+                <h1>Your budget: {{ money }}</h1>
                 <input type="number" name="update_budget" placeholder="New money transfer" required>
             </form>
         </div>

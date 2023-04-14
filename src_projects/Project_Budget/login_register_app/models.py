@@ -1,10 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-class User(models.Model):
-    username = models.CharField(max_length=20, null=False, unique=True)
-    password = models.CharField(max_length=30, null=False)
-    email = models.EmailField(unique=True)
-    money = models.IntegerField(max_length=50, null=False)
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    money = models.DecimalField(max_digits=10, decimal_places=2)
 
-
-
+    def __str__(self):
+        return self.user.username
