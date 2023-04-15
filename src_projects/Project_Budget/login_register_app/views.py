@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from .models import Income, Profile
 
 def MasterPage(request):
     return render (request,'master.html')
@@ -31,6 +32,7 @@ def RegisterPage(request):
                     return render(request, 'register.html', {'error_message': 'Invalid money value.'})
                 user = User.objects.create_user(username=uname, email=email, password=password)
                 profile = Profile.objects.create(user=user, money=money)
+                messages.success(request, 'Your account has been created successfully!')
                 return redirect('login')
         else:
             return render(request, 'register.html', {'error_message': "Those passwords didn't match. Try again."})
@@ -54,6 +56,15 @@ def LoginPage(request):
 def HomePage(request):
     user_profile = Profile.objects.get(user=request.user)
     money = user_profile.money
+
+    if request.method == 'POST':
+        new_income = int(request.POST.get('update_budget'))
+        income_source = request.POST.get('source')
+        user_profile.money += new_income
+        user_profile.save()
+        money = user_profile.money
+
+        Income.objects.create(user=user_profile.user, amount=int(new_income), source=income_source)
 
     return render(request, 'home.html', {'money': money})
 
