@@ -80,7 +80,36 @@ body {
   background-color: rgb(184, 241, 176);
 }
 
+.spend-section {
+
+}
+
 /* MEDIA */
+
+/* ##################################### MOBILE 0px (320px) — 480px ##################################### */
+
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+
+}
+
+/* ####################################### PORTRAIT TABLET 481px — 767px ####################################### */
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+
+}
+
+/* ###################################### LANDSCAPE TABLET 768px — 1023px ###################################### */
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+
+}
+
+
+/* ##################################### DESKTOP 1024px — 1439px ###################################### */
+
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+  
+}
 
 /* ######################################## LARGE DESKTOP ######################################## */
 
