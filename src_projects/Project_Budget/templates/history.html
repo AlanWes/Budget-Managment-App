@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Turtle Spend</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/history.css' %}">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <img src="{% static 'images/logo.png' %}" class="logo">
+            <div class="nav-links">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="underline"><a href="{% url 'history' %}">History</a></li>
+                    <li><a href="{% url 'graphs' %}">Graphs</a></li>
+                    <li><a href="{% url 'goals' %}">Goals</a></li>
+                    <li><a href="{% url 'tips' %}">Tips</a></li>
+                    <li class="acc-links"><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </div>
+            <img src="{% static 'images/menu-btn.png' %}" class="menu-btn">
+        </nav>
+    </div>
+    <!--JS-->
+    <script src="{% static 'js/history.js' %}"></script>
+</body>
+</html>
