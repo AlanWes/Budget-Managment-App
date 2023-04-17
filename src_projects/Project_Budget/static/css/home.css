@@ -90,11 +90,23 @@ body {
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
 
+  /* NAVBAR */
+  /* SECTION 1 */
+  /* SECTION 2 */
+  /* SECTION 3 */
+  /* FOOTER */
+
 }
 
 /* ####################################### PORTRAIT TABLET 481px — 767px ####################################### */
 
 @media only screen and (min-width: 481px) and (max-width: 767px) {
+
+  /* NAVBAR */
+  /* SECTION 1 */
+  /* SECTION 2 */
+  /* SECTION 3 */
+  /* FOOTER */
 
 }
 
@@ -102,13 +114,25 @@ body {
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
 
+  /* NAVBAR */
+  /* SECTION 1 */
+  /* SECTION 2 */
+  /* SECTION 3 */
+  /* FOOTER */
+
 }
 
 
 /* ##################################### DESKTOP 1024px — 1439px ###################################### */
 
 @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-  
+
+  /* NAVBAR */
+  /* SECTION 1 */
+  /* SECTION 2 */
+  /* SECTION 3 */
+  /* FOOTER */
+
 }
 
 /* ######################################## LARGE DESKTOP ######################################## */
