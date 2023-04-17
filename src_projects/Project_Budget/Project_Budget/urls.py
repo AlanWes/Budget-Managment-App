@@ -27,6 +27,10 @@ urlpatterns = [
     path('register/',views.RegisterPage,name='register'),
     path('home/',views.HomePage,name='home'),
     path('logout/',views.LogoutPage,name='logout'),
+    path('history/',views.HistoryPage,name='history'),
+    path('graphs/',views.GraphsPage,name='graphs'),
+    path('goals/',views.GoalsPage,name='goals'),
+    path('tips/',views.TipsPage,name='tips'),
 ]
 
 if settings.DEBUG:

@@ -14,34 +14,54 @@
             <img src="{% static 'images/logo.png' %}" class="logo">
             <div class="nav-links">
                 <ul>
-                    <li><a href="#">History</a></li>
-                    <li><a href="#">Graphs</a></li>
-                    <li><a href="#">Goals</a></li>
-                    <li><a href="#">Tips</a></li>
+                    <li class="underline"><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'history' %}">History</a></li>
+                    <li><a href="{% url 'graphs' %}">Graphs</a></li>
+                    <li><a href="{% url 'goals' %}">Goals</a></li>
+                    <li><a href="{% url 'tips' %}">Tips</a></li>
                     <li class="acc-links"><a href="{% url 'logout' %}">Logout</a></li>
                 </ul>
             </div>
             <img src="{% static 'images/menu-btn.png' %}" class="menu-btn">
         </nav>
-        <div class="manage-section">
+        <div class="income-section">
             <form action="" method="POST">
                 {% csrf_token %}
-                <h1>Your budget: {{ money }}</h1>
-                <input type="number" name="update_budget" placeholder="New money transfer" required>
-                <label for="source">Source of income:</label>
-                <select name="source">
-                  <option value="employment">Employment income</option>
-                  <option value="business">Business income</option>
-                  <option value="rental">Rental income</option>
-                  <option value="investment">Investment income</option>
-                  <option value="social_security">Social security benefits</option>
-                  <option value="intellectual">Intellectual property income</option>
-                  <option value="e_commerce">E-commerce revenue</option>
+                <h1>{{ money }}</h1>
+                <input type="number" name="new_income" placeholder="Enter new income" required>
+                <label for="source-income">Source of income:</label>
+                <select name="source-income">
+                    <option value="employment">Employment income</option>
+                    <option value="business">Business income</option>
+                    <option value="rental">Rental income</option>
+                    <option value="investment">Investment income</option>
+                    <option value="social_security">Social security benefits</option>
+                    <option value="intellectual">Intellectual property income</option>
+                    <option value="e_commerce">E-commerce revenue</option>
                 </select>
+                <button>Submit</button>
             </form>
-            <div class="spend-section">
-                
-            </div>
+        </div>
+        <div class="spend-section">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <h1>{{ expense }}</h1>
+                <input type="number" name="new_expense" placeholder="Enter new expense" required>
+                <label for="source-expense">Source of expense:</label>
+                <select name="source-expense">
+                    <option value="house">Housing / mortgage costs</option>
+                    <option value="food">Food / groceries</option>
+                    <option value="clothes">Clothing / footwear</option>
+                    <option value="transport">Transportation</option>
+                    <option value="entertaiment">Entertainment / vacations</option>
+                    <option value="utility">Utility bills</option>
+                    <option value="loan">Loan / credit card payments</option>
+                    <option value="healthcare">Healthcare expenses</option>
+                    <option value="invest">Investments / savings</option>
+                    <option value="other">Other expenses</option>
+                </select>
+                <button>Submit</button>
+            </form>
         </div>
     </div>
     <!--JS-->

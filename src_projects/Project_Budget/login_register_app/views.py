@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
-from .models import Income, Profile
+from .models import Income, Profile, Expense
 
 def MasterPage(request):
     return render (request,'master.html')
@@ -56,18 +56,48 @@ def LoginPage(request):
 def HomePage(request):
     user_profile = Profile.objects.get(user=request.user)
     money = user_profile.money
+    expense = user_profile.spend
 
     if request.method == 'POST':
-        new_income = int(request.POST.get('update_budget'))
-        income_source = request.POST.get('source')
-        user_profile.money += new_income
-        user_profile.save()
+        income_source = request.POST.get('source-income')
+        expense_source = request.POST.get('source-expense')
+        new_income = request.POST.get('new_income')
+        new_expense = request.POST.get('new_expense')
+
+        if new_income is not None and new_income != '':
+            new_income = int(new_income)
+            user_profile.money += new_income
+            Income.objects.create(user=user_profile.user, amount=new_income, source=income_source)
+            user_profile.save()
+
+        if new_expense is not None and new_expense != '':
+            new_expense = int(new_expense)
+            user_profile.spend += new_expense
+            user_profile.money -= new_expense
+            Expense.objects.create(user=user_profile.user, amount=new_expense, source=expense_source)
+            user_profile.save()
+
         money = user_profile.money
+        expense = user_profile.spend
 
-        Income.objects.create(user=user_profile.user, amount=int(new_income), source=income_source)
-
-    return render(request, 'home.html', {'money': money})
+    return render(request, 'home.html', {'money': money, 'expense': expense})
 
 def LogoutPage(request):
     logout(request)
     return redirect('master')
+
+@login_required(login_url='login')
+def HistoryPage(request):
+    return render (request,'history.html')
+
+@login_required(login_url='login')
+def GraphsPage(request):
+    return render (request,'graphs.html')
+
+@login_required(login_url='login')
+def GoalsPage(request):
+    return render (request,'goals.html')
+
+@login_required(login_url='login')
+def TipsPage(request):
+    return render (request,'tips.html')
