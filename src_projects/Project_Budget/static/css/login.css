@@ -138,3 +138,33 @@ body {
   width: 200px;
   border-radius: 1em;
 }
+
+/* ##################################### MOBILE 0px (320px) — 480px ##################################### */
+
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+
+  /* BOX STYLE */
+  
+  .reg-box {
+    background-color: rgba(14, 139, 102, 0.0);  
+  }
+  
+  /* FORM BOX STYLE */
+  
+  .reg-box .form-box input {
+    margin-bottom: 0.25em;
+    padding: 0.75em;
+  }
+  
+  .reg-box .form-box label {
+    margin-top: 0.25em;
+    margin-bottom: 0.125em;
+    font-weight: 400;
+  }
+  
+  .reg-box .form-box p {
+    font-weight: 500;
+    font-size: 0.5em;
+  }
+  
+  }
