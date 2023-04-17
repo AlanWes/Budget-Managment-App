@@ -7,6 +7,12 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from .models import Income, Profile, Expense
 
+# Graphs
+from datetime import datetime
+import numpy as np
+import pandas as pd
+import base64
+
 def MasterPage(request):
     return render (request,'master.html')
 
@@ -92,7 +98,40 @@ def HistoryPage(request):
 
 @login_required(login_url='login')
 def GraphsPage(request):
-    return render (request,'graphs.html')
+    data = Income.objects.filter(user=request.user).values('source', 'amount', 'created_at')
+    df = pd.DataFrame(list(data))
+    df['created_at'] = pd.to_datetime(df['created_at']).dt.to_period('M')
+    df['amount'] = df['amount'].astype('float')
+    df = df.groupby(['created_at', 'source']).sum().replace('', np.nan).reset_index()
+    df['source'] = df['source'].fillna('')
+    # Create a new dataframe with a row for each month in the year
+    today = datetime.today()
+    months = pd.date_range(start=f'{today.year}-01-01', end=f'{today.year}-12-01', freq='MS').to_period('M')
+    sources = df['source'].dropna().unique()  # usunięcie wartości NaN
+    empty_df = pd.DataFrame({'created_at': months})
+    for source in sources:
+        empty_df[source] = np.nan
+    df = pd.concat([df, empty_df], ignore_index=True)
+    df = df.sort_values('created_at')
+
+    # Pivot the dataframe and fill missing values with 0
+    df = df.replace(np.nan, '', regex=True)
+    df = df.pivot(index='created_at', columns='source', values='amount').fillna(0)
+
+    # Plot the chart
+    chart = df.plot(kind='bar', stacked=True, figsize=(12, 8))
+    chart.set_xlabel('Month')
+    chart.set_ylabel('Amount')
+    chart.set_title('Cash inflow per source per month')
+    chart.legend(title='Source', loc='upper left')
+
+    chart.figure.tight_layout()
+    chart.figure.savefig('chart.png')  # Save chart to file
+    with open('chart.png', 'rb') as f:
+        chart_data = f.read()
+        chart_data_base64 = base64.b64encode(chart_data).decode('utf-8')
+    return render(request, 'graphs.html', {'chart_data': chart_data_base64})
+
 
 @login_required(login_url='login')
 def GoalsPage(request):
