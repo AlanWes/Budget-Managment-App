@@ -94,7 +94,21 @@ def LogoutPage(request):
 
 @login_required(login_url='login')
 def HistoryPage(request):
-    return render (request,'history.html')
+    user = request.user
+    incomes = Income.objects.filter(user=user).order_by('-created_at')
+    expenses = Expense.objects.filter(user=user).order_by('-created_at')
+
+    history = []
+    for income in incomes:
+        history.append((income.created_at, f"Income of {income.amount} from {income.source}"))
+
+    for expense in expenses:
+        history.append((expense.created_at, f"Expense of {expense.amount} for {expense.source}"))
+
+    history = sorted(history, key=lambda x: x[0], reverse=True)
+
+    context = {'history': history}
+    return render(request, 'history.html', context)
 
 @login_required(login_url='login')
 def GraphsPage(request):
