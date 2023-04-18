@@ -80,6 +80,14 @@ body {
 
 /* MAIN APP */
 
+.history-item {
+  color: green; /* kolor dla "Income" */
+}
+.history-item.expense {
+  color: red; /* kolor dla "Expense" */
+}
+
+
 /* MEDIA */
 
 /* ##################################### MOBILE 0px (320px) — 480px ##################################### */
