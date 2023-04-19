@@ -100,10 +100,10 @@ def HistoryPage(request):
 
     history = []
     for income in incomes:
-        history.append((income.created_at, f"Income of {income.amount} from {income.source}"))
+        history.append((income.created_at, f"Income of {income.amount}€ from {income.source}"))
 
     for expense in expenses:
-        history.append((expense.created_at, f"Expense of {expense.amount} for {expense.source}"))
+        history.append((expense.created_at, f"Expense of {expense.amount}€ for {expense.source}"))
 
     history = sorted(history, key=lambda x: x[0], reverse=True)
 

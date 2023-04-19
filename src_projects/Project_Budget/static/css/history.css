@@ -30,6 +30,7 @@ body {
 /* NAVBAR */
 
 .navbar {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,11 +81,29 @@ body {
 
 /* MAIN APP */
 
+.history-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.history-container .history-list {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  background-color: rgb(20, 195, 142, 0.05);
+}
+
 .history-item {
-  color: green; /* kolor dla "Income" */
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding: 0.5em;
+  border: 2px solid rgb(20, 195, 142);
+  color: #2dd729;
 }
 .history-item.expense {
-  color: red; /* kolor dla "Expense" */
+  color: #ff3838;
 }
 
 
