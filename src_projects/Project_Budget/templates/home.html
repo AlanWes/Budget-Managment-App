@@ -29,7 +29,9 @@
                 <form action="" method="POST">
                     {% csrf_token %}
                     <div class="income-how">
-                        <h1>{{ money }}</h1>
+                        <h1>{{ money }}€</h1>
+                        <div class="circle"></div>
+                        <div class="circle-grow"></div>
                     </div>
                     <input type="number" name="new_income" placeholder="Enter new income" required>
                     <label for="source-income">Source of income</label>
@@ -49,7 +51,9 @@
                 <form action="" method="POST">
                     {% csrf_token %}
                     <div class="spend-how">
-                        <h1>{{ expense }}</h1>
+                        <h1>{{ expense }}€</h1>
+                        <div class="circle"></div>
+                        <div class="circle-grow"></div>
                     </div>
                     <input type="number" name="new_expense" placeholder="Enter new expense" required>
                     <label for="source-expense">Source of expense:</label>
