@@ -86,7 +86,7 @@ def HomePage(request):
         money = user_profile.money
         expense = user_profile.spend
 
-    return render(request, 'home.html', {'money': money, 'expense': expense})
+    return render(request, 'home.html', {'money': format(money, '.2f') if money % 1 != 0 else int(money), 'expense': format(expense, '.2f') if expense % 1 != 0 else int(expense)})
 
 def LogoutPage(request):
     logout(request)
