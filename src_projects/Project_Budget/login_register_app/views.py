@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from .models import Income, Profile, Expense
+from decimal import Decimal
 
 # Graphs
 from datetime import datetime
@@ -71,13 +72,13 @@ def HomePage(request):
         new_expense = request.POST.get('new_expense')
 
         if new_income is not None and new_income != '':
-            new_income = int(new_income)
+            new_income = Decimal(new_income)
             user_profile.money += new_income
             Income.objects.create(user=user_profile.user, amount=new_income, source=income_source)
             user_profile.save()
 
         if new_expense is not None and new_expense != '':
-            new_expense = int(new_expense)
+            new_expense = Decimal(new_expense)
             user_profile.spend += new_expense
             user_profile.money -= new_expense
             Expense.objects.create(user=user_profile.user, amount=new_expense, source=expense_source)
@@ -86,7 +87,7 @@ def HomePage(request):
         money = user_profile.money
         expense = user_profile.spend
 
-    return render(request, 'home.html', {'money': format(money, '.2f') if money % 1 != 0 else int(money), 'expense': format(expense, '.2f') if expense % 1 != 0 else int(expense)})
+    return render(request, 'home.html', {'money': "{:.2f}".format(money).rstrip('0').rstrip('.'), 'expense': "{:.2f}".format(expense).rstrip('0').rstrip('.')})
 
 def LogoutPage(request):
     logout(request)
