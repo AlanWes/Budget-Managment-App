@@ -124,6 +124,22 @@ input[type=number]::-webkit-outer-spin-button {
   background: transparent;
 }
 
+.income-section button {
+  width: 150px;
+  height: 40px;
+  font-size: 1em;
+  font-weight: 600;
+  color: rgb(255,250,250);
+  border: none;
+  border-radius: 2em;
+  background-color: rgb(20, 195, 142, 0.8);
+  margin: 0.5em;
+}
+
+.income-section button:hover {
+  background-color: rgb(20, 195, 142, 1);
+}
+
 .income-section form {
   display: flex;
   flex-direction: column;
@@ -136,6 +152,7 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 1em;
   border-radius: 2em;
   border: 2px solid rgb(184, 241, 176);
+  background-color: rgb(255,250,250);
   font-size: 0.8em;
   z-index: 2;
 }
@@ -144,16 +161,8 @@ input[type=number]::-webkit-outer-spin-button {
   outline: none;
 }
 
-.income-section form label {
-}
-
 .income-section form select {
   margin: 0.5em;
-}
-
-.income-section form button {
-  width: 150px;
-  height: 30px;
 }
 
 .income-section form .income-how {
@@ -204,7 +213,13 @@ input[type=number]::-webkit-outer-spin-button {
 .income-section .income-title {
   color: rgb(255,250,250);
   font-size: 1.5em;
-  text-shadow: 2px 0px 1px rgb(0,0,0, 0.5);
+  text-shadow: 3px 1px 3px rgb(45,215,41);
+}
+
+.income-section .time-range {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 /* SPEND SECTION */
@@ -228,18 +243,36 @@ input[type=number]::-webkit-outer-spin-button {
 .spend-section form input {
   margin: 0.5em;
   text-align: center;
+  padding: 1em;
+  border-radius: 2em;
+  border: 2px solid rgb(184, 241, 176);
+  background-color: rgb(255,250,250);
+  font-size: 0.8em;
+  z-index: 2;
 }
 
-.income-section form label {
+.spend-section form input:focus {
+  outline: none;
 }
 
 .spend-section form select {
   margin: 0.5em;
 }
 
-.spend-section form button {
+.spend-section button {
   width: 150px;
-  height: 30px;
+  height: 40px;
+  font-size: 1em;
+  font-weight: 600;
+  color: rgb(255,250,250);
+  border: none;
+  border-radius: 2em;
+  background-color: rgb(20, 195, 142, 0.8);
+  margin: 0.5em;
+}
+
+.spend-section button:hover {
+  background-color: rgb(20, 195, 142, 1);
 }
 
 .spend-section form .spend-how {
@@ -290,7 +323,36 @@ input[type=number]::-webkit-outer-spin-button {
 .spend-section .spend-title {
   color: rgb(255,250,250);
   font-size: 1.5em;
-  text-shadow: 2px 0px 1px rgb(0,0,0, 0.5);
+  text-shadow: 3px 1px 3px rgb(255,56,56);
+}
+
+/* SOURCE SELECT */
+
+.source-select {
+  color: rgb(255,250,250);
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9em;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  padding: 0.5em 1em;
+  width: 80%;
+  cursor: pointer;
+}
+
+.source-select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.source-select:hover {
+  color: rgb(255,250,250, 0.85);
+}
+
+.source-select option {
+  color: rgb(0,0,0);
+  background-color: rgb(255,250,250);
 }
 
 /* MEDIA */
