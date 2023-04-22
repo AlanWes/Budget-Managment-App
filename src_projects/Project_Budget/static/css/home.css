@@ -29,6 +29,14 @@ body {
   border-bottom: 5px solid rgb(0, 255, 171);
 }
 
+/* input type number */
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 /* ANIMATIONS */
 
 @keyframes grow-circle {
@@ -125,6 +133,15 @@ body {
 .income-section form input {
   margin: 0.5em;
   text-align: center;
+  padding: 1em;
+  border-radius: 2em;
+  border: 2px solid rgb(184, 241, 176);
+  font-size: 0.8em;
+  z-index: 2;
+}
+
+.income-section form input:focus {
+  outline: none;
 }
 
 .income-section form label {
@@ -181,7 +198,13 @@ body {
   font-size: 3em;
   font-weight: 600;
   color: rgb(255,250,250);
-  text-shadow: 2px 0px 1px rgba(13, 125, 90, 1);
+  text-shadow: 2px 0px 1px rgb(0,0,0, 0.5);
+}
+
+.income-section .income-title {
+  color: rgb(255,250,250);
+  font-size: 1.5em;
+  text-shadow: 2px 0px 1px rgb(0,0,0, 0.5);
 }
 
 /* SPEND SECTION */
@@ -261,7 +284,13 @@ body {
   font-size: 3em;
   font-weight: 600;
   color: rgb(255,250,250);
-  text-shadow: 2px 0px 1px rgba(13, 125, 90, 1);
+  text-shadow: 2px 0px 1px rgb(0,0,0, 0.5);
+}
+
+.spend-section .spend-title {
+  color: rgb(255,250,250);
+  font-size: 1.5em;
+  text-shadow: 2px 0px 1px rgb(0,0,0, 0.5);
 }
 
 /* MEDIA */

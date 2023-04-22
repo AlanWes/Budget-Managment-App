@@ -28,13 +28,16 @@
             <div class="income-section">
                 <form action="" method="POST">
                     {% csrf_token %}
+                    <div class="income-title">
+                        <h1>INCOME</h1>
+                    </div>
                     <div class="income-how">
                         <h1>{{ money }}€</h1>
                         <div class="circle"></div>
                         <div class="circle-grow"></div>
                     </div>
-                    <input type="number" name="new_income" placeholder="Enter new income" required>
-                    <label for="source-income">Source of income</label>
+                    <input type="number" step="0.01" name="new_income" placeholder="Enter new income" required>
+                    <label for="source-income">Source</label>
                     <select name="source-income">
                         <option value="employment">Employment income</option>
                         <option value="business">Business income</option>
@@ -50,12 +53,15 @@
             <div class="spend-section">
                 <form action="" method="POST">
                     {% csrf_token %}
+                    <div class="spend-title">
+                        <h1>EXPENSE</h1>
+                    </div>
                     <div class="spend-how">
                         <h1>{{ expense }}€</h1>
                         <div class="circle"></div>
                         <div class="circle-grow"></div>
                     </div>
-                    <input type="number" name="new_expense" placeholder="Enter new expense" required>
+                    <input type="number" step="0.01" name="new_expense" placeholder="Enter new expense" required>
                     <label for="source-expense">Source of expense:</label>
                     <select name="source-expense">
                         <option value="house">Housing / mortgage costs</option>
