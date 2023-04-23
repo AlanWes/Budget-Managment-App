@@ -14,7 +14,7 @@
 body {
   font-family: 'Poppins';
   font-weight: 400;
-  background-color: rgb(255,250,250);
+  background-color: rgb(20, 195, 142);
 }
 
 .container {
@@ -85,13 +85,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10vh;
 }
 
 .history-container .history-list {
   display: flex;
   flex-direction: column;
   width: 800px;
-  background-color: rgb(20, 195, 142, 0.05);
+  background-color: rgb(255,250,250, 0.8);
+  border: 3px solid rgb(0, 255, 171);
 }
 
 .history-item {
@@ -99,11 +101,12 @@ body {
   flex-direction: row-reverse;
   justify-content: space-between;
   padding: 0.5em;
-  border: 2px solid rgb(20, 195, 142);
   color: #2dd729;
+  text-shadow: 1px 0px 1px rgb(0,0,0, 0.5);
 }
 .history-item.expense {
   color: #ff3838;
+  text-shadow: 1px 0px 1px rgb(0,0,0, 0.5);
 }
 
 
