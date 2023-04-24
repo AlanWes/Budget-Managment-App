@@ -326,6 +326,12 @@ input[type=number]::-webkit-outer-spin-button {
   text-shadow: 3px 1px 3px rgb(255,56,56);
 }
 
+.spend-section .time-range {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 /* SOURCE SELECT */
 
 .source-select {

@@ -24,7 +24,12 @@
             </div>
             <img src="{% static 'images/menu-btn.png' %}" class="menu-btn">
         </nav>
-        <img src="data:image/png;base64,{{ chart_data }}" alt="My Graph">
+        <div class="income">
+            <img src="data:image/png;base64,{{ chart_data_1 }}" alt="income graph" class="income-graph">
+        </div>
+        <div class="expense">
+            <img src="data:image/png;base64,{{ chart_data_2 }}" alt="income graph" class="expense-graph">
+        </div>
     </div>
     <!--JS-->
     <script src="{% static 'js/graphs.js' %}"></script>

@@ -31,7 +31,6 @@
                     {% csrf_token %}
                     <div class="income-title">
                         <h1>INCOME</h1>
-                        <input type="hidden" name="time_range" value="{{ time_range }}">
                         <div class="time-range">
                             <i class="fa fa-chevron-left"></i>
                             <span>THIS WEEK</span>
@@ -53,7 +52,7 @@
                         <option value="social_security">Social security benefits</option>
                         <option value="intellectual">Intellectual property income</option>
                         <option value="e_commerce">E-commerce revenue</option>
-                        <option value="e_commerce">Other incomes</option>
+                        <option value="other">Other incomes</option>
                     </select>
                     <button>Submit</button>
                 </form>
@@ -63,6 +62,11 @@
                     {% csrf_token %}
                     <div class="spend-title">
                         <h1>EXPENSE</h1>
+                        <div class="time-range">
+                            <i class="fa fa-chevron-left"></i>
+                            <span>THIS WEEK</span>
+                            <i class="fa fa-chevron-right"></i>
+                        </div>
                     </div>
                     <div class="spend-how">
                         <h1>{{ expense }}€</h1>
