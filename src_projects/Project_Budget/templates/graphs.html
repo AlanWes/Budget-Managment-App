@@ -25,9 +25,17 @@
             <img src="{% static 'images/menu-btn.png' %}" class="menu-btn">
         </nav>
         <div class="income">
+            <div class="income-title">
+                <h1>Income Graph</h1>
+                <h2>Check your income history</h2>
+            </div>
             <img src="data:image/png;base64,{{ chart_data_1 }}" alt="income graph" class="income-graph">
         </div>
         <div class="expense">
+            <div class="expense-title">
+                <h1>Expense Graph</h1>
+                <h2>Check your expense history</h2>
+            </div>
             <img src="data:image/png;base64,{{ chart_data_2 }}" alt="income graph" class="expense-graph">
         </div>
     </div>
