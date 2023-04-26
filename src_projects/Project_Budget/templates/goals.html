@@ -24,6 +24,24 @@
             </div>
             <img src="{% static 'images/menu-btn.png' %}" class="menu-btn">
         </nav>
+        <div class="goals">
+            <h2>Ustaw swoje cele budżetowe</h2>
+            <form>
+                <label for="savings-goal">Cel oszczędnościowy:</label>
+                <input type="number" id="savings-goal" name="savings-goal" min="0" placeholder="Wpisz kwotę...">
+                <label for="debt-goal">Cel spłaty długu:</label>
+                <input type="number" id="debt-goal" name="debt-goal" min="0" placeholder="Wpisz kwotę...">
+                <label for="investment-goal">Cel inwestycyjny:</label>
+                <input type="number" id="investment-goal" name="investment-goal" min="0" placeholder="Wpisz kwotę...">
+                <button type="submit">Zapisz cele</button>
+            </form>
+        </div>
+        <div class="goals-after hidden">
+            <h2>Oto Twoje cele:</h2>
+            <p>Cel oszczędnościowy: <span id="savings-goal-text"></span></p>
+            <p>Cel spłaty długu: <span id="debt-goal-text"></span></p>
+            <p>Cel inwestycyjny: <span id="investment-goal-text"></span></p>
+        </div>          
     </div>
     <!--JS-->
     <script src="{% static 'js/goals.js' %}"></script>
