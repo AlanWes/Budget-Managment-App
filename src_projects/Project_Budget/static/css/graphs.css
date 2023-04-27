@@ -88,8 +88,7 @@ body {
   width: 100vw;
   height: 90vh;
   background-image: var(--back-top);
-  background-size: cover;
-  background-position: center;
+  background-position: bottom;
 }
 
 .expense {
@@ -99,8 +98,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-image: var(--back-bottom);
-  background-size: cover;
-  background-position: center;
+  background-position: top;
 }
 
 .income-graph {

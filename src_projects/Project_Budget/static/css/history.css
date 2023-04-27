@@ -15,38 +15,18 @@
 body {
   font-family: 'Poppins';
   font-weight: 400;
-  background-color: #01fba9;
+  background-color: rgb(0, 255, 171);
 }
 
 .container {
-  overflow: hidden;
+  overflow: hidden; 
+  background-image: var(--back-top), var(--back-bottom);
+  background-position: top center, bottom center;
+  background-repeat: no-repeat;
 }
 
 .underline {
   border-bottom: 5px solid rgb(0, 255, 171);
-}
-
-.back-top {
-  position:absolute;
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  background-image: var(--back-top);
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-}
-
-
-.back-bottom {
-  position: absolute;
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  background-image: var(--back-bottom);
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
 }
 
 /* MAIN STYLE */
@@ -108,7 +88,6 @@ body {
 .history-container {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
   margin-top: 10vh;
 }
 
