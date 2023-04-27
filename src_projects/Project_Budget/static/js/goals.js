@@ -1,28 +1,30 @@
 /// FOR CSS
 
-///MOBILE MENU BTN
+///NAVIGATOR
 
-const menubtn = document.querySelector(".menu-btn")
-const navLinks = document.querySelector(".nav-links")
+const createBtn = document.querySelector('.create button');
+const listBtn = document.querySelector('.list button');
+const finishedBtn = document.querySelector('.finished button');
+const createDiv = document.querySelector('.goals-create');
+const listDiv = document.querySelector('.goals-list');
+const finishedDiv = document.querySelector('.goals-finished');
+const mainDiv = document.querySelector('.main');
 
-menubtn.addEventListener('click',()=>{
-navLinks.classList.toggle('mobile-menu')
-})
+listDiv.classList.add('hidden');
+finishedDiv.classList.add('hidden');
+createDiv.classList.add('hidden');
 
-///GOALS
+createBtn.addEventListener('click', () => {
+  mainDiv.style.display = 'none';
+  createDiv.classList.remove('hidden');
+});
 
-const goalsForm = document.querySelector('.goals form');
-const goalsDiv = document.querySelector('.goals');
-const goalsAfterDiv = document.querySelector('.goals-after');
+listBtn.addEventListener('click', () => {
+  mainDiv.style.display = 'none';
+  listDiv.classList.remove('hidden');
+});
 
-goalsForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  goalsDiv.classList.toggle('hidden');
-  goalsAfterDiv.classList.toggle('hidden');
-  const savingsGoalText = document.querySelector('#savings-goal-text');
-  savingsGoalText.innerText = document.querySelector('#savings-goal').value;
-  const debtGoalText = document.querySelector('#debt-goal-text');
-  debtGoalText.innerText = document.querySelector('#debt-goal').value;
-  const investmentGoalText = document.querySelector('#investment-goal-text');
-  investmentGoalText.innerText = document.querySelector('#investment-goal').value;
+finishedBtn.addEventListener('click', () => {
+  mainDiv.style.display = 'none';
+  finishedDiv.classList.remove('hidden');
 });
