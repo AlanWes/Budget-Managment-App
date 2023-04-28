@@ -185,6 +185,32 @@ body {
   background-position: center;
 }
 
+/* OPTIONS */
+
+.goals-create {
+  display: flex;
+  height: 90vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.goals-list {
+  display: flex;
+  height: 90vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.goals-finished {
+  display: flex;
+  height: 90vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
 /* MEDIA */
 
 /* ##################################### MOBILE 0px (320px) — 480px ##################################### */

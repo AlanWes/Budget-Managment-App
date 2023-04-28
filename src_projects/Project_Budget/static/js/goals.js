@@ -10,21 +10,21 @@ const listDiv = document.querySelector('.goals-list');
 const finishedDiv = document.querySelector('.goals-finished');
 const mainDiv = document.querySelector('.main');
 
-listDiv.classList.add('hidden');
-finishedDiv.classList.add('hidden');
-createDiv.classList.add('hidden');
+listDiv.style.display = "none";
+finishedDiv.style.display = "none";
+createDiv.style.display = "none";
 
 createBtn.addEventListener('click', () => {
   mainDiv.style.display = 'none';
-  createDiv.classList.remove('hidden');
+  createDiv.style.display = '';
 });
 
 listBtn.addEventListener('click', () => {
   mainDiv.style.display = 'none';
-  listDiv.classList.remove('hidden');
+  listDiv.style.display = '';
 });
 
 finishedBtn.addEventListener('click', () => {
   mainDiv.style.display = 'none';
-  finishedDiv.classList.remove('hidden');
+  finishedDiv.style.display = '';
 });
