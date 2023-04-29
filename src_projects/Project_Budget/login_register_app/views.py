@@ -208,4 +208,21 @@ def GoalsPage(request):
 
 @login_required(login_url='login')
 def TipsPage(request):
-    return render (request,'tips.html')
+    if request.method == 'POST':
+        housing = int(request.POST.get('house', 0))
+        food = int(request.POST.get('food', 0))
+        clothing = int(request.POST.get('clothes', 0))
+        transportation = int(request.POST.get('transport', 0))
+        entertainment = int(request.POST.get('entertaiment', 0))
+        utilities = int(request.POST.get('utility', 0))
+        loans = int(request.POST.get('loan', 0))
+        healthcare = int(request.POST.get('healthcare', 0))
+        investments = int(request.POST.get('invest', 0))
+        other = int(request.POST.get('other', 0))
+        
+        total_score = housing + food + clothing + transportation + entertainment + utilities + loans + healthcare + investments + other
+        
+        return render(request, 'tips_result.html', {'total_score': total_score})
+    
+    return render(request, 'tips.html')
+
