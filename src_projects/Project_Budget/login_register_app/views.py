@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
-from .models import Income, Profile, Expense
+from .models import Income, Profile, Expense, Goal
 from decimal import Decimal
 
 # Graphs
@@ -204,22 +204,36 @@ def GraphsPage(request):
 
 @login_required(login_url='login')
 def GoalsPage(request):
-    return render (request,'goals.html')
+    goals = Goal.objects.all()
+    if request.method == 'POST':
+        goal_name = request.POST['goal_name']
+        goal_number = request.POST['goal_number']
+        source_income = request.POST['source_income']
+        button_value = request.POST.get('button')
+
+        if button_value == 'create':
+            goal = Goal.objects.create(
+                goal_name=goal_name,
+                goal_number=goal_number,
+                source_income=source_income,
+            )
+            return redirect('goals')
+        elif button_value == 'finished':
+            goal_id = request.POST['goal_id']
+            goal = Goal.objects.get(id=goal_id)
+            goal.is_finished = True
+            goal.save()
+            return redirect('goals')
+        elif button_value == 'delete':
+            goal_id = request.POST['goal_id']
+            goal = Goal.objects.get(id=goal_id)
+            goal.delete()
+            return redirect('goals')
+
+    return render(request, 'goals.html', {'goals': goals})
 
 @login_required(login_url='login')
 def TipsPage(request):
-    if request.method == 'POST':
-        housing = int(request.POST.get('house', 0))
-        food = int(request.POST.get('food', 0))
-        clothing = int(request.POST.get('clothes', 0))
-        transportation = int(request.POST.get('transport', 0))
-        entertainment = int(request.POST.get('entertaiment', 0))
-        utilities = int(request.POST.get('utility', 0))
-        loans = int(request.POST.get('loan', 0))
-        healthcare = int(request.POST.get('healthcare', 0))
-        investments = int(request.POST.get('invest', 0))
-        other = int(request.POST.get('other', 0))
-
     if request.method == 'POST':
         housing = int(request.POST.get('house', 0))
         food = int(request.POST.get('food', 0))

@@ -34,6 +34,14 @@ body {
   display: none;
 }
 
+/* input type number */
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 /* MAIN STYLE */
 
 /* NAVBAR */
@@ -108,12 +116,12 @@ body {
   color: rgb(255,250,250);
   border: none;
   border-radius: 2em;
-  background-color: rgb(20, 195, 142, 0.8);
+  background-color: rgb(20, 195, 142);
   margin: 0.5em;
 }
 
 .main button:hover {
-  background-color: rgb(20, 195, 142, 1);
+  background-color: rgb(18, 172, 125);
 }
 
 .main .create {
@@ -187,6 +195,8 @@ body {
 
 /* OPTIONS */
 
+/* CREATE */
+
 .goals-create {
   display: flex;
   height: 90vh;
@@ -194,6 +204,76 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.goals-create .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em;
+  border-radius: 1em;
+}
+
+.goals-create .wrapper .goals-title {
+  color: rgb(255,250,250);
+  text-shadow: 2px 1px 3px rgb(0,0,0, 0.5);
+  text-align: center;
+  padding-bottom: 1em;
+  font-size: 1.6em;
+}
+
+.goals-create .wrapper form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 1em;
+}
+
+.goals-create .wrapper form input {
+  text-align: center;
+  margin-bottom: 1em;
+  padding: 1em;
+  border-radius: 2em;
+  border: 2px solid rgb(184, 241, 176);
+  background-color: rgb(255,250,250);
+  font-size: 0.8em;
+}
+
+.goals-create .wrapper form input:focus {
+  outline: none;
+}
+
+.goals-create .wrapper form button {
+  width: 150px;
+  height: 40px;
+  font-size: 1em;
+  font-weight: 600;
+  color: rgb(255,250,250);
+  border: none;
+  border-radius: 2em;
+  background-color: rgb(20, 195, 142);
+  margin: 0.5em;
+}
+
+.goals-create .wrapper form button:hover {
+  background-color: rgb(18, 172, 125);
+}
+
+.goals-create .wrapper .back-btn1 button {
+  width: 100px;
+  height: 30px;
+  font-size: 1em;
+  font-weight: 600;
+  color: rgb(255,250,250);
+  border: none;
+  border-radius: 2em;
+  background-color: #A9A9A9;
+}
+
+.goals-create .wrapper .back-btn1 button:hover {
+  background-color: #9c9c9c;
+}
+
+/* LIST */
 
 .goals-list {
   display: flex;
@@ -203,12 +283,44 @@ body {
   align-items: center;
 }
 
+/* FINISHED */
+
 .goals-finished {
   display: flex;
   height: 90vh;
   width: 100vw;
   justify-content: center;
   align-items: center;
+}
+
+/* select */
+
+.source-select {
+  color: rgb(255,250,250);
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9em;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  padding: 0.5em 0.5em;
+  padding-bottom: 1em;
+  width: 60%;
+  cursor: pointer;
+}
+
+.source-select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.source-select:hover {
+  color: rgb(255,250,250, 0.85);
+}
+
+.source-select option {
+  color: rgb(0,0,0);
+  background-color: rgb(255,250,250);
 }
 
 /* MEDIA */

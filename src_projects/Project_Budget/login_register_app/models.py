@@ -26,6 +26,20 @@ class Expense(models.Model):
 
     def __str__(self):
         return f"Income of {self.amount} from {self.source}"
+    
+class Goal(models.Model):
+    goal_name = models.CharField(max_length=200)
+    goal_number = models.DecimalField(max_digits=10, decimal_places=2)
+    source_income = models.CharField(max_length=50, choices=(
+        ('vacation', 'Vacation / travel'),
+        ('emergency', 'Emergency fund'),
+        ('debt', 'Debt repayment'),
+        ('invest', 'Investing'),
+        ('homeownership', 'Homeownership'),
+        ('other', 'Other goals'),
+    ))
+    is_finished = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     
 
