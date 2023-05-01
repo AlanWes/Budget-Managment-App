@@ -132,12 +132,12 @@ input[type=number]::-webkit-outer-spin-button {
   color: rgb(255,250,250);
   border: none;
   border-radius: 2em;
-  background-color: rgb(20, 195, 142, 0.8);
+  background-color: rgb(20, 195, 142);
   margin: 0.5em;
 }
 
 .income-section button:hover {
-  background-color: rgb(20, 195, 142, 1);
+  background-color: rgb(18, 172, 125);
 }
 
 .income-section form {
@@ -267,12 +267,12 @@ input[type=number]::-webkit-outer-spin-button {
   color: rgb(255,250,250);
   border: none;
   border-radius: 2em;
-  background-color: rgb(20, 195, 142, 0.8);
+  background-color: rgb(20, 195, 142);
   margin: 0.5em;
 }
 
 .spend-section button:hover {
-  background-color: rgb(20, 195, 142, 1);
+  background-color: rgb(18, 172, 125);
 }
 
 .spend-section form .spend-how {
@@ -342,7 +342,8 @@ input[type=number]::-webkit-outer-spin-button {
   appearance: none;
   border: none;
   background-color: transparent;
-  padding: 0.5em 1em;
+  padding: 0.5em 0.5em;
+  padding-bottom: 1em;
   width: 80%;
   cursor: pointer;
 }

@@ -42,14 +42,101 @@
             </div>
         </div>
         <div class="goals-create">
-            <h1>Create Goal:</h1>
+            <div class="wrapper">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="goals-title">
+                        <h1>Create a Goal</h1>
+                    </div>
+                    <input type="text" name="goal_name" placeholder="Name your goal" required>
+                    <input type="number" step="0.01" name="goal_number" placeholder="How much money" required>
+                    <select name="source_income" class="source-select" required>
+                        <option value="" selected disabled hidden>Select type of goal</option>
+                        <option value="vacation">Vacation / travel</option>
+                        <option value="emergency">Emergency fund</option>
+                        <option value="debt">Debt repayment</option>
+                        <option value="invest">Investing</option>
+                        <option value="homeownership">Homeownership</option>
+                        <option value="other">Other goals</option>
+                    </select>
+                    <button type="submit" name="button" value="create">Create</button>
+                </form>  
+                <div class="back-btn1">
+                    <button>Back</button>
+                </div>  
+            </div>        
         </div>
         <div class="goals-list">
-            <h1>Your Goals:</h1>
+            <h2>All goals:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Goal amount</th>
+                        <th>Source of goal</th>
+                        <th>1</th>
+                        <th>2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for goal in goals %}
+                    {% if not goal.is_finished %}
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ goal.goal_name }}</td>
+                            <td>{{ goal.goal_number }}</td>
+                            <td>{{ goal.source_income }}</td>
+                            <input type="hidden" name="goal_id" value="{{ goal.id }}">
+                            <input type="hidden" name="goal_name" value="{{ goal.goal_name }}">
+                            <input type="hidden" name="goal_number" value="{{ goal.goal_number }}">
+                            <input type="hidden" name="source_income" value="{{ goal.source_income }}">
+                            <td>
+                                <button type="submit" name="button" value="finished">Finished</button>
+                            </td>
+                            <td>
+                                <button type="submit" name="button" value="delete">Delete</button>
+                            </td>
+                        </tr>
+                    </form>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>  
+            <div class="back-btn2">
+                <button>Back</button>
+            </div>                                     
         </div> 
         <div class="goals-finished">
-            <h1>Finished Goals:</h1>
-        </div>         
+            <h2>All goals:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Goal amount</th>
+                        <th>Source of goal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for goal in goals %}
+                    {% if goal.is_finished %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ goal.goal_name }}</td>
+                            <td>{{ goal.goal_number }}</td>
+                            <td>{{ goal.source_income }}</td>
+                        </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table> 
+            <div class="back-btn3">
+                <button>Back</button>
+            </div>
+        </div>                     
     </div>
     <!--JS-->
     <script src="{% static 'js/goals.js' %}"></script>
