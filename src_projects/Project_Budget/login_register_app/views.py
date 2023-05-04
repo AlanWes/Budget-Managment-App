@@ -235,20 +235,32 @@ def GoalsPage(request):
 @login_required(login_url='login')
 def TipsPage(request):
     if request.method == 'POST':
-        housing = int(request.POST.get('house', 0))
-        food = int(request.POST.get('food', 0))
-        clothing = int(request.POST.get('clothes', 0))
-        transportation = int(request.POST.get('transport', 0))
-        entertainment = int(request.POST.get('entertaiment', 0))
-        utilities = int(request.POST.get('utility', 0))
-        loans = int(request.POST.get('loan', 0))
-        healthcare = int(request.POST.get('healthcare', 0))
-        investments = int(request.POST.get('invest', 0))
-        other = int(request.POST.get('other', 0))
-        
-        total_score = housing + food + clothing + transportation + entertainment + utilities + loans + healthcare + investments + other
-        
-        return render(request, 'tips_result.html', {'total_score': total_score})
-    
-    return render(request, 'tips.html')
+        user = request.user
+        profile = Profile.objects.get(user=user)
+        income_sum = Income.objects.filter(user=user).aggregate(Sum('amount'))['amount__sum']
+        expense_sum = Expense.objects.filter(user=user).aggregate(Sum('amount'))['amount__sum']
+        tip1 = ""
+        tip2 = ""
+        tip3 = ""
+
+        # Tip 1: Check if expenses are greater than income
+        if expense_sum > income_sum:
+            tip1 = "You are spending more money than you are earning. Consider cutting back on your expenses."
+
+        # Tip 2: Analyze your expenses by category
+        expense_categories = Expense.objects.filter(user=user).values('source').annotate(total=Sum('amount')).order_by('-total')
+        if expense_categories:
+            highest_expense = expense_categories.first()
+            tip2 = f"You are spending the most money on {highest_expense['source']}. Consider reducing your spending in this category."
+
+        # Tip 3: Set a budget and track your spending
+        if profile.money > 0:
+            budget_percentage = round((expense_sum / profile.money) * 100, 2)
+            if budget_percentage >= 50:
+                tip3 = "You have spent more than 50% of your budget. Consider setting a more realistic budget and tracking your expenses."
+
+        return render(request, 'tips.html', {'tip1': tip1, 'tip2': tip2, 'tip3': tip3})
+
+    else:
+        return render(request, 'tips.html')
 
