@@ -242,6 +242,10 @@ def TipsPage(request):
         tip1 = ""
         tip2 = ""
         tip3 = ""
+        tip4 = ""
+        tip5 = ""
+        tip6 = ""
+        tip7 = ""
 
         # Tip 1: Check if expenses are greater than income
         if expense_sum > income_sum:
@@ -259,7 +263,27 @@ def TipsPage(request):
             if budget_percentage >= 50:
                 tip3 = "You have spent more than 50% of your budget. Consider setting a more realistic budget and tracking your expenses."
 
-        return render(request, 'tips.html', {'tip1': tip1, 'tip2': tip2, 'tip3': tip3})
+        # Tip 4: Reduce impulse spending
+        recent_expenses = Expense.objects.filter(user=user).order_by('-date')[:5]
+        if all(expense.amount < 20 for expense in recent_expenses):
+            tip4 = "You seem to be making a lot of small impulse purchases. Consider being more mindful of your spending and avoiding unnecessary purchases."
+
+        # Tip 5: Avoid unnecessary subscriptions
+        subscriptions = Expense.objects.filter(user=user, category='Subscriptions').aggregate(Sum('amount'))['amount__sum']
+        if subscriptions > 0:
+            tip5 = "You are spending money on subscriptions. Consider evaluating which ones you really need and canceling the rest."
+
+        # Tip 6: Shop around for better deals
+        if expense_categories:
+            lowest_expense = expense_categories.last()
+            tip6 = f"You are spending the least money on {lowest_expense['source']}. Consider exploring other options to see if you can find better deals."
+
+        # Tip 7: Use cash instead of credit
+        credit_expenses = Expense.objects.filter(user=user, payment_method='Credit').aggregate(Sum('amount'))['amount__sum']
+        if credit_expenses > 0:
+            tip7 = "You are using your credit card for purchases. Consider using cash instead to better control your spending and avoid interest charges."
+
+        return render(request, 'tips.html', {'tip1': tip1, 'tip2': tip2, 'tip3': tip3, 'tip4': tip4, 'tip5': tip5, 'tip6': tip6, 'tip7': tip7})
 
     else:
         return render(request, 'tips.html')
