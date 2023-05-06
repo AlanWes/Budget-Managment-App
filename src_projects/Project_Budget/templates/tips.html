@@ -25,6 +25,56 @@
             <img src="{% static 'images/menu-btn.png' %}" class="menu-btn">
         </nav>
     </div>
+    <div class="tips">
+        {% if tip1 or tip2 or tip3 or tip4 or tip5 or tip6 or tip7 %}
+        <table>
+            {% if tip1 %}
+                <tr>
+                    <td>Tip 1:</td>
+                    <td>{{ tip1 }}</td>
+                </tr>
+            {% endif %}
+            {% if tip2 %}
+                <tr>
+                    <td>Tip 2:</td>
+                    <td>{{ tip2 }}</td>
+                </tr>
+            {% endif %}
+            {% if tip3 %}
+                <tr>
+                    <td>Tip 3:</td>
+                    <td>{{ tip3 }}</td>
+                </tr>
+            {% endif %}
+            {% if tip4 %}
+                <tr>
+                    <td>Tip 4:</td>
+                    <td>{{ tip4 }}</td>
+                </tr>
+            {% endif %}
+            {% if tip5 %}
+                <tr>
+                    <td>Tip 5:</td>
+                    <td>{{ tip5 }}</td>
+                </tr>
+            {% endif %}
+            {% if tip6 %}
+                <tr>
+                    <td>Tip 6:</td>
+                    <td>{{ tip6 }}</td>
+                </tr>
+            {% endif %}
+            {% if tip7 %}
+                <tr>
+                    <td>Tip 7:</td>
+                    <td>{{ tip7 }}</td>
+                </tr>
+            {% endif %}
+        </table>
+    {% else %}
+        <p>No tips today.</p>
+    {% endif %}    
+    </div>
     <!--JS-->
     <script src="{% static 'js/tips.js' %}"></script>
 </body>

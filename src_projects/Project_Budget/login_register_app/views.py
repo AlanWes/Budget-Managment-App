@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth.models import User
+from django.db.models import Sum
 from login_register_app.models import Profile
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
@@ -234,57 +235,49 @@ def GoalsPage(request):
 
 @login_required(login_url='login')
 def TipsPage(request):
-    if request.method == 'POST':
-        user = request.user
-        profile = Profile.objects.get(user=user)
-        income_sum = Income.objects.filter(user=user).aggregate(Sum('amount'))['amount__sum']
-        expense_sum = Expense.objects.filter(user=user).aggregate(Sum('amount'))['amount__sum']
-        tip1 = ""
-        tip2 = ""
-        tip3 = ""
-        tip4 = ""
-        tip5 = ""
-        tip6 = ""
-        tip7 = ""
+    user = request.user
+    profile = Profile.objects.get(user=user)
+    income_sum = Income.objects.filter(user=user).aggregate(Sum('amount'))['amount__sum']
+    expense_sum = Expense.objects.filter(user=user).aggregate(Sum('amount'))['amount__sum']
+    print(income_sum)
+    print(expense_sum)
+    tip1 = ""
+    tip2 = ""
+    tip3 = ""
+    tip4 = ""
+    tip5 = ""
+    tip6 = ""
 
-        # Tip 1: Check if expenses are greater than income
-        if expense_sum > income_sum:
-            tip1 = "You are spending more money than you are earning. Consider cutting back on your expenses."
+    # Tip 1: Check if expenses are greater than income
+    if expense_sum > income_sum:
+        tip1 = "You are spending more money than you are earning. Consider cutting back on your expenses."
 
-        # Tip 2: Analyze your expenses by category
-        expense_categories = Expense.objects.filter(user=user).values('source').annotate(total=Sum('amount')).order_by('-total')
-        if expense_categories:
-            highest_expense = expense_categories.first()
-            tip2 = f"You are spending the most money on {highest_expense['source']}. Consider reducing your spending in this category."
+    # Tip 2: Analyze your expenses by category
+    expense_categories = Expense.objects.filter(user=user).values('source').annotate(total=Sum('amount')).order_by('-total')
+    if expense_categories:
+        highest_expense = expense_categories.first()
+        tip2 = f"You are spending the most money on {highest_expense['source']}. Consider reducing your spending in this category."
 
-        # Tip 3: Set a budget and track your spending
-        if profile.money > 0:
-            budget_percentage = round((expense_sum / profile.money) * 100, 2)
-            if budget_percentage >= 50:
-                tip3 = "You have spent more than 50% of your budget. Consider setting a more realistic budget and tracking your expenses."
+    # Tip 3: Set a budget and track your spending
+    if profile.money > 0:
+        budget_percentage = round((expense_sum / profile.money) * 100, 2)
+        if budget_percentage >= 50:
+            tip3 = "You have spent more than 50% of your budget. Consider setting a more realistic budget and tracking your expenses."
 
-        # Tip 4: Reduce impulse spending
-        recent_expenses = Expense.objects.filter(user=user).order_by('-date')[:5]
-        if all(expense.amount < 20 for expense in recent_expenses):
-            tip4 = "You seem to be making a lot of small impulse purchases. Consider being more mindful of your spending and avoiding unnecessary purchases."
+    # Tip 4: Reduce impulse spending
+    recent_expenses = Expense.objects.filter(user=user).order_by('-created_at')[:5]
+    if all(expense.amount < 20 for expense in recent_expenses):
+        tip4 = "You seem to be making a lot of small impulse purchases. Consider being more mindful of your spending and avoiding unnecessary purchases."
 
-        # Tip 5: Avoid unnecessary subscriptions
-        subscriptions = Expense.objects.filter(user=user, category='Subscriptions').aggregate(Sum('amount'))['amount__sum']
-        if subscriptions > 0:
-            tip5 = "You are spending money on subscriptions. Consider evaluating which ones you really need and canceling the rest."
+    # Tip 5: Avoid unnecessary subscriptions
+    entertaiment = Expense.objects.filter(user=user, source='entertaiment').aggregate(Sum('amount'))['amount__sum']
+    if entertaiment > 0:
+        tip5 = "You are spending money on entertaiment. Consider evaluating which ones you really need and canceling the rest."
 
-        # Tip 6: Shop around for better deals
-        if expense_categories:
-            lowest_expense = expense_categories.last()
-            tip6 = f"You are spending the least money on {lowest_expense['source']}. Consider exploring other options to see if you can find better deals."
+    # Tip 6: Shop around for better deals
+    if expense_categories:
+        lowest_expense = expense_categories.last()
+        tip6 = f"You are spending the least money on {lowest_expense['source']}. Consider exploring other options to see if you can find better deals."
 
-        # Tip 7: Use cash instead of credit
-        credit_expenses = Expense.objects.filter(user=user, payment_method='Credit').aggregate(Sum('amount'))['amount__sum']
-        if credit_expenses > 0:
-            tip7 = "You are using your credit card for purchases. Consider using cash instead to better control your spending and avoid interest charges."
-
-        return render(request, 'tips.html', {'tip1': tip1, 'tip2': tip2, 'tip3': tip3, 'tip4': tip4, 'tip5': tip5, 'tip6': tip6, 'tip7': tip7})
-
-    else:
-        return render(request, 'tips.html')
+    return render(request, 'tips.html', {'tip1': tip1, 'tip2': tip2, 'tip3': tip3, 'tip4': tip4, 'tip5': tip5, 'tip6': tip6})
 
