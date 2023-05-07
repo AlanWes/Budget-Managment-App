@@ -26,54 +26,54 @@
         </nav>
     </div>
     <div class="tips">
-        {% if tip1 or tip2 or tip3 or tip4 or tip5 or tip6 or tip7 %}
-        <table>
-            {% if tip1 %}
-                <tr>
-                    <td>Tip 1:</td>
-                    <td>{{ tip1 }}</td>
-                </tr>
-            {% endif %}
-            {% if tip2 %}
-                <tr>
-                    <td>Tip 2:</td>
-                    <td>{{ tip2 }}</td>
-                </tr>
-            {% endif %}
-            {% if tip3 %}
-                <tr>
-                    <td>Tip 3:</td>
-                    <td>{{ tip3 }}</td>
-                </tr>
-            {% endif %}
-            {% if tip4 %}
-                <tr>
-                    <td>Tip 4:</td>
-                    <td>{{ tip4 }}</td>
-                </tr>
-            {% endif %}
-            {% if tip5 %}
-                <tr>
-                    <td>Tip 5:</td>
-                    <td>{{ tip5 }}</td>
-                </tr>
-            {% endif %}
-            {% if tip6 %}
-                <tr>
-                    <td>Tip 6:</td>
-                    <td>{{ tip6 }}</td>
-                </tr>
-            {% endif %}
-            {% if tip7 %}
-                <tr>
-                    <td>Tip 7:</td>
-                    <td>{{ tip7 }}</td>
-                </tr>
-            {% endif %}
-        </table>
-    {% else %}
-        <p>No tips today.</p>
-    {% endif %}    
+        <div class="wrapper">
+            {% if tip1 or tip2 or tip3 or tip4 or tip5 or tip6 or tip7 %}
+                {% if tip1 %}
+                    <div class="tip-box">
+                        <h1>Tip 1</h1>
+                        <p>{{ tip1 }}</p>
+                    </div>
+                {% endif %}
+                {% if tip2 %}
+                    <div class="tip-box">
+                        <h1>Tip 2</h1>
+                        <p>{{ tip2 }}</p>
+                    </div>
+                {% endif %}
+                {% if tip3 %}
+                    <div class="tip-box">
+                        <h1>Tip 3</h1>
+                        <p>{{ tip3 }}</p>
+                    </div>
+                {% endif %}
+                {% if tip4 %}
+                    <div class="tip-box">
+                        <h1>Tip 4</h1>
+                        <p>{{ tip4 }}</p>
+                    </div>
+                {% endif %}
+                {% if tip5 %}
+                    <div class="tip-box">
+                        <h1>Tip 5</h1>
+                        <p>{{ tip5 }}</p>
+                    </div>
+                {% endif %}
+                {% if tip6 %}
+                    <div class="tip-box">
+                        <h1>Tip 6</h1>
+                        <p>{{ tip6 }}</p>
+                    </div>
+                {% endif %}
+                {% if tip7 %}
+                    <div class="tip-box">
+                        <h1>Tip 7</h1>
+                        <p>{{ tip7 }}</p>
+                    </div>
+                {% endif %}
+            {% else %}
+                <p>No tips today.</p>
+            {% endif %}   
+        </div> 
     </div>
     <!--JS-->
     <script src="{% static 'js/tips.js' %}"></script>
