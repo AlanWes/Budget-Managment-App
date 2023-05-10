@@ -369,11 +369,58 @@ input[type=number]::-webkit-outer-spin-button {
 @media only screen and (min-width: 0px) and (max-width: 480px) {
 
   /* NAVBAR */
+
+  .navbar {
+    padding: 0;
+  }
+
+  .navbar .nav-links ul li {
+    margin: 0px 0;
+    font-size: 1.4em;
+  }
+
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 128, 0, 0.25);
+    backdrop-filter: blur(3px);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    margin-left: -100%;
+    justify-content: center;
+  }
+
+  .nav-links.mobile-menu {
+    z-index: 999;
+    margin-left: 0;
+    transition: all 0.5s ease;
+  }
+
+  .navbar .nav-links ul {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar a:hover {
+  color: rgb(255,250,250);
+  text-decoration: none;
+}
+
   /* SECTION 1 */
   /* SECTION 2 */
   /* SECTION 3 */
   /* FOOTER */
-
 }
 
 /* ####################################### PORTRAIT TABLET 481px — 767px ####################################### */
