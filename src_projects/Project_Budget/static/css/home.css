@@ -368,6 +368,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
 
+  /* CONTAINER */
+
+  .container {
+    background-color: green;
+    overflow: hidden;
+    background-image: none;
+  }
+
   /* NAVBAR */
 
   .navbar {
@@ -410,16 +418,50 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-}
+  }
 
-.navbar a:hover {
-  color: rgb(255,250,250);
-  text-decoration: none;
-}
+  .navbar a:hover {
+    color: rgb(255,250,250);
+    text-decoration: none;
+  }
 
-  /* SECTION 1 */
-  /* SECTION 2 */
-  /* SECTION 3 */
+    /* WRAPPER */
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+  }
+
+    /* INCOME SECTION */
+
+  .income-section {
+    transform: scale(0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45vh;
+    width: 100vw;
+    box-sizing: border-box;
+    background: transparent;
+    font-size: 120%;
+  }
+
+    /* SPEND SECTION */
+
+  .spend-section {
+    transform: scale(0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45vh;
+    width: 50vw;
+    box-sizing: border-box;
+    background: transparent;
+    font-size: 120%;
+  }
+
   /* FOOTER */
 }
 
