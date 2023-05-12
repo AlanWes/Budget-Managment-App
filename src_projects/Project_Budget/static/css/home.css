@@ -371,10 +371,18 @@ input[type=number]::-webkit-outer-spin-button {
   /* CONTAINER */
 
   .container {
-    background-color: green;
+    background-color: rgb(184, 241, 176);
     overflow: hidden;
     background-image: none;
   }
+
+  .source-select {
+    font-weight: 700;
+    font-size: 1.2em;
+    padding: 0.5em 0.5em;
+    padding-bottom: 0.5em;
+    width: 100vw;
+}
 
   /* NAVBAR */
 
@@ -448,6 +456,37 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 120%;
   }
 
+  .income-section form input {
+    margin: 0.5em;
+    padding: 1em;
+    border-radius: 2em;
+    font-size: 1em;
+  }
+
+  .income-section form .circle {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .income-section form .circle-grow {
+    width: 260px;
+    height: 260px;
+  }
+
+  .income-section .income-title {
+    font-size: 1.3em;
+  }
+
+  .income-section form .income-how h1 {
+    font-size: 2.5em;
+  }
+
+  .income-section button {
+    width: 180px;
+    height: 50px;
+    font-size: 1.2em;
+  }
+
     /* SPEND SECTION */
 
   .spend-section {
@@ -460,6 +499,37 @@ input[type=number]::-webkit-outer-spin-button {
     box-sizing: border-box;
     background: transparent;
     font-size: 120%;
+  }
+
+  .spend-section form input {
+    margin: 0.5em;
+    padding: 1em;
+    border-radius: 2em;
+    font-size: 1em;
+  }
+
+  .spend-section form .circle {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .spend-section form .circle-grow {
+    width: 260px;
+    height: 260px;
+  }
+
+  .spend-section .spend-title {
+    font-size: 1.3em;
+  }
+
+  .spend-section form .spend-how h1 {
+    font-size: 2.5em;
+  }
+
+  .spend-section button {
+    width: 180px;
+    height: 50px;
+    font-size: 1.2em;
   }
 
   /* FOOTER */
