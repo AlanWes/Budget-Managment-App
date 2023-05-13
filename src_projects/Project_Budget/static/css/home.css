@@ -371,9 +371,8 @@ input[type=number]::-webkit-outer-spin-button {
   /* CONTAINER */
 
   .container {
-    background-color: rgb(184, 241, 176);
     overflow: hidden;
-    background-image: none;
+    background-position: left;
   }
 
   .source-select {
