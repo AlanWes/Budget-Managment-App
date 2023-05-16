@@ -26,14 +26,20 @@
         </nav>
         <div class="history-container">
             <ul class="history-list">
-              {% for item in history %}
-                <li class="history-item {% if 'Expense' in item.1 %}expense{% endif %}">
-                  <p class="history-date">{{ item.0|date:'F j, Y, H:i' }}</p>
-                  <p class="history-description">{{ item.1 }}</p>
+              {% if history %}
+                {% for item in history %}
+                  <li class="history-item {% if 'Expense' in item.1 %}expense{% endif %}">
+                    <p class="history-date">{{ item.0|date:'F j, Y, H:i' }}</p>
+                    <p class="history-description">{{ item.1 }}</p>
+                  </li>
+                {% endfor %}
+              {% else %}
+                <li class="empty-message">
+                  <h1>History is empty</h1>
                 </li>
-              {% endfor %}
+              {% endif %}
             </ul>
-        </div>            
+          </div>                            
     </div>
     <!--JS-->
     <script src="{% static 'js/history.js' %}"></script>

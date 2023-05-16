@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
   --income-how: url('/static/images/income-how.png');
@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: 'Poppins';
+  font-family: 'Montserrat';
   font-weight: 400;
 }
 
@@ -68,6 +68,9 @@ input[type=number]::-webkit-outer-spin-button {
   background-size: cover;
   box-sizing: border-box;
   z-index: 999;
+  font-size: large;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .navbar a {
@@ -78,7 +81,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .navbar a:hover {
-  color: rgb(255,250,250, 0.8);
+  color: rgb(255,250,250, 0.85);
   text-decoration: underline;
 }
 
@@ -101,6 +104,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .navbar .menu-btn {
+  position: absolute;
+  right: 20px;
+  width: 60px;
+}
+
+.navbar .menu-btn-after {
   position: absolute;
   right: 20px;
   width: 60px;
@@ -207,13 +216,16 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 2.8em;
   font-weight: 600;
   color: rgb(255,250,250);
-  text-shadow: 2px 0px 1px rgb(0,0,0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .income-section .income-title {
-  color: rgb(255,250,250);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, rgb(255, 250, 250), rgb(45, 215, 41));  
   font-size: 1.5em;
-  text-shadow: 3px 1px 3px rgb(45,215,41);
+  font-weight: 800;
 }
 
 .income-section .time-range {
@@ -317,13 +329,16 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 2.8em;
   font-weight: 600;
   color: rgb(255,250,250);
-  text-shadow: 2px 0px 1px rgb(0,0,0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .spend-section .spend-title {
-  color: rgb(255,250,250);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, rgb(255, 250, 250), rgb(255,56,56));  
   font-size: 1.5em;
-  text-shadow: 3px 1px 3px rgb(255,56,56);
+  font-weight: 800;
 }
 
 .spend-section .time-range {
@@ -368,6 +383,11 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
 
+  .menu-btn-after {
+    display: none;
+    z-index: 999;
+  }
+
   /* CONTAINER */
 
   .container {
@@ -403,14 +423,14 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 128, 0, 0.25);
-    backdrop-filter: blur(3px);
+    background-color: rgb(20, 195, 142);
+    text-shadow: none;
     width: 100%;
     height: 100vh;
     display: flex;
-    align-items: flex-start;
-    margin-left: -100%;
     justify-content: center;
+    align-items: center;
+    margin-left: -100%;
   }
 
   .nav-links.mobile-menu {
@@ -550,6 +570,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
 
+  .menu-btn {
+    display: none;
+  }
+
+  .menu-btn-after {
+    display: none;
+  }
+
   /* NAVBAR */
   /* SECTION 1 */
   /* SECTION 2 */
@@ -562,6 +590,14 @@ input[type=number]::-webkit-outer-spin-button {
 /* ##################################### DESKTOP 1024px — 1439px ###################################### */
 
 @media only screen and (min-width: 1024px) and (max-width: 1439px) {
+
+  .menu-btn {
+    display: none;
+  }
+
+  .menu-btn-after {
+    display: none;
+  }
 
   /* NAVBAR */
   /* SECTION 1 */
@@ -576,6 +612,10 @@ input[type=number]::-webkit-outer-spin-button {
 @media only screen and (min-width: 1440px) {
   
   .menu-btn {
+    display: none;
+  }
+
+  .menu-btn-after {
     display: none;
   }
 
