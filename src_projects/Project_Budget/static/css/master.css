@@ -43,7 +43,7 @@ body {
   z-index: 999;
   font-size: large;
   font-weight: 600;
-  text-shadow: 1px 0px 1px rgb(0, 0, 0);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .navbar.scrolled {
@@ -69,7 +69,6 @@ body {
 
 .navbar .nav-links ul li.acc-links a {
   color: rgb(0, 255, 171);
-  text-shadow: none;
 }
 
 .navbar .nav-links ul li.acc-links a:hover {
@@ -144,14 +143,14 @@ body {
   font-weight: 600;
   font-size: 3em;
   color: rgb(255,250,250);
-  text-shadow: 2px 0px 1px rgba(13, 125, 90, 0.85);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .section-1 .p-2 {
   font-weight: 600;
   font-size: 2em;
   color: rgb(255,250,250);
-  text-shadow: 2px 0px 1px rgba(13, 125, 90, 0.85);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 /* SECTION 2 */
@@ -536,18 +535,23 @@ footer .contact {
   .navbar .nav-links ul li {
     margin: 25px 0;
     font-size: 1.4em;
+    font-weight: 600;
   }
 
   .menu-btn {
     display: block;
   }
 
+  .menu-btn-after {
+    display: none;
+  }
+
   .nav-links {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 128, 0, 0.25);
-    backdrop-filter: blur(3px);
+    background-color: rgb(20, 195, 142);
+    text-shadow: none;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -558,6 +562,11 @@ footer .contact {
 
   .nav-links.mobile-menu {
     margin-left: 0;
+    transition: all 0.5s ease;
+  }
+
+  .nav-links.mobile-menu2 {
+    margin-left: -100%;
     transition: all 0.5s ease;
   }
 
@@ -730,6 +739,10 @@ footer .contact {
 
   .menu-btn-after {
     display: none;
+  }
+
+  .navbar {
+    font-size: medium;
   }
 
   /* SECTION 1 */
