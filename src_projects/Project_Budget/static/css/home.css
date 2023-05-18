@@ -4,6 +4,8 @@
   --income-how: url('/static/images/income-how.png');
   --spend-how: url('/static/images/spend-how.png');
   --home-back: url('/static/images/home-back.png');
+  --mobile-home: url('/static/images/mobile-home.png');
+  --select: url('/static/images/select.png');
 }
 
 * {
@@ -16,6 +18,7 @@
 body {
   font-family: 'Montserrat';
   font-weight: 400;
+  background-color: rgb(20, 195, 142);
 }
 
 .container {
@@ -65,12 +68,11 @@ input[type=number]::-webkit-outer-spin-button {
   height: 10vh;
   width: 100vw;
   max-width: 100%;
-  background-size: cover;
   box-sizing: border-box;
   z-index: 999;
   font-size: large;
   font-weight: 600;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .navbar a {
@@ -153,6 +155,7 @@ input[type=number]::-webkit-outer-spin-button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .income-section form input {
@@ -216,22 +219,24 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 2.8em;
   font-weight: 600;
   color: rgb(255,250,250);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .income-section .income-title {
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(to right, rgb(255, 250, 250), rgb(45, 215, 41));  
+  display: flex;
+  flex-direction: column;
+  color: rgb(255,250,250);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   font-size: 1.5em;
   font-weight: 800;
+  align-items: center;
 }
 
 .income-section .time-range {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  width: 9em;
 }
 
 /* SPEND SECTION */
@@ -249,6 +254,7 @@ input[type=number]::-webkit-outer-spin-button {
 .spend-section form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -329,38 +335,45 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 2.8em;
   font-weight: 600;
   color: rgb(255,250,250);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .spend-section .spend-title {
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(to right, rgb(255, 250, 250), rgb(255,56,56));  
+  display: flex;
+  flex-direction: column;
+  color: rgb(255,250,250);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   font-size: 1.5em;
   font-weight: 800;
+  align-items: center;
 }
 
 .spend-section .time-range {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  width: 9em;
 }
 
 /* SOURCE SELECT */
 
 .source-select {
   color: rgb(255,250,250);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   text-align: center;
   font-weight: 700;
-  font-size: 0.9em;
-  appearance: none;
+  font-size: 1em;
   border: none;
+  appearance: none;
   background-color: transparent;
-  padding: 0.5em 0.5em;
-  padding-bottom: 1em;
-  width: 80%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 0.5em;
   cursor: pointer;
+  background-image: var(--select);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 15px;
 }
 
 .source-select:focus {
@@ -392,21 +405,20 @@ input[type=number]::-webkit-outer-spin-button {
 
   .container {
     overflow: hidden;
-    background-position: left;
+    background-image: var(--mobile-home);
+    background-position: bottom;
   }
 
   .source-select {
-    font-weight: 700;
-    font-size: 1.2em;
-    padding: 0.5em 0.5em;
-    padding-bottom: 0.5em;
-    width: 100vw;
-}
+    font-size: 1.1em;
+  }
 
   /* NAVBAR */
 
   .navbar {
+    position: fixed;
     padding: 0;
+    background-color: rgb(20, 195, 142);
   }
 
   .navbar .nav-links ul li {
@@ -439,6 +451,12 @@ input[type=number]::-webkit-outer-spin-button {
     transition: all 0.5s ease;
   }
 
+  .nav-links.mobile-menu2 {
+    z-index: 999;
+    margin-left: -100%;
+    transition: all 0.5s ease;
+  }
+
   .navbar .nav-links ul {
     display: flex;
     height: 100vh;
@@ -456,27 +474,29 @@ input[type=number]::-webkit-outer-spin-button {
 
   .wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     width: 100vw;
+    height: 100vh;
   }
 
     /* INCOME SECTION */
 
   .income-section {
-    transform: scale(0.55);
+    transform: scale(0.50);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 45vh;
-    width: 100vw;
+    height: 90vh;
+    width: 50vw;
     box-sizing: border-box;
     background: transparent;
     font-size: 120%;
+    text-align: center;
   }
 
   .income-section form input {
-    margin: 0.5em;
+    margin: 2em;
     padding: 1em;
     border-radius: 2em;
     font-size: 1em;
@@ -494,6 +514,7 @@ input[type=number]::-webkit-outer-spin-button {
 
   .income-section .income-title {
     font-size: 1.3em;
+    margin: 2em;
   }
 
   .income-section form .income-how h1 {
@@ -509,7 +530,7 @@ input[type=number]::-webkit-outer-spin-button {
     /* SPEND SECTION */
 
   .spend-section {
-    transform: scale(0.55);
+    transform: scale(0.50);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -518,10 +539,11 @@ input[type=number]::-webkit-outer-spin-button {
     box-sizing: border-box;
     background: transparent;
     font-size: 120%;
+    text-align: center;
   }
 
   .spend-section form input {
-    margin: 0.5em;
+    margin: 2em;
     padding: 1em;
     border-radius: 2em;
     font-size: 1em;
@@ -539,6 +561,7 @@ input[type=number]::-webkit-outer-spin-button {
 
   .spend-section .spend-title {
     font-size: 1.3em;
+    margin: 2em;
   }
 
   .spend-section form .spend-how h1 {
@@ -551,18 +574,189 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 1.2em;
   }
 
-  /* FOOTER */
 }
 
 /* ####################################### PORTRAIT TABLET 481px — 767px ####################################### */
 
 @media only screen and (min-width: 481px) and (max-width: 767px) {
 
+  .menu-btn-after {
+    display: none;
+    z-index: 999;
+  }
+
+  /* CONTAINER */
+
+  .container {
+    overflow: hidden;
+    background-image: var(--mobile-home);
+    background-position: bottom;
+  }
+
+  .source-select {
+    font-size: 1.1em;
+  }
+
   /* NAVBAR */
-  /* SECTION 1 */
-  /* SECTION 2 */
-  /* SECTION 3 */
-  /* FOOTER */
+
+  .navbar {
+    position: fixed;
+    padding: 0;
+    background-color: rgb(20, 195, 142);
+  }
+
+  .navbar .nav-links ul li {
+    margin: 0px 0;
+    font-size: 1.4em;
+  }
+
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(20, 195, 142);
+    text-shadow: none;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -100%;
+  }
+
+  .nav-links.mobile-menu {
+    z-index: 999;
+    margin-left: 0;
+    transition: all 0.5s ease;
+  }
+
+  .nav-links.mobile-menu2 {
+    z-index: 999;
+    margin-left: -100%;
+    transition: all 0.5s ease;
+  }
+
+  .navbar .nav-links ul {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a:hover {
+    color: rgb(255,250,250);
+    text-decoration: none;
+  }
+
+    /* WRAPPER */
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+
+    /* INCOME SECTION */
+
+  .income-section {
+    transform: scale(0.70);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 50vw;
+    box-sizing: border-box;
+    background: transparent;
+    font-size: 120%;
+    text-align: center;
+  }
+
+  .income-section form input {
+    margin: 2em;
+    padding: 1em;
+    border-radius: 2em;
+    font-size: 1em;
+  }
+
+  .income-section form .circle {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .income-section form .circle-grow {
+    width: 260px;
+    height: 260px;
+  }
+
+  .income-section .income-title {
+    font-size: 1.3em;
+    margin: 2em;
+  }
+
+  .income-section form .income-how h1 {
+    font-size: 2.5em;
+  }
+
+  .income-section button {
+    width: 180px;
+    height: 50px;
+    font-size: 1.2em;
+  }
+
+    /* SPEND SECTION */
+
+  .spend-section {
+    transform: scale(0.70);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45vh;
+    width: 50vw;
+    box-sizing: border-box;
+    background: transparent;
+    font-size: 120%;
+    text-align: center;
+  }
+
+  .spend-section form input {
+    margin: 2em;
+    padding: 1em;
+    border-radius: 2em;
+    font-size: 1em;
+  }
+
+  .spend-section form .circle {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .spend-section form .circle-grow {
+    width: 260px;
+    height: 260px;
+  }
+
+  .spend-section .spend-title {
+    font-size: 1.3em;
+    margin: 2em;
+  }
+
+  .spend-section form .spend-how h1 {
+    font-size: 2.5em;
+  }
+
+  .spend-section button {
+    width: 180px;
+    height: 50px;
+    font-size: 1.2em;
+  }
 
 }
 
@@ -570,19 +764,183 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
 
-  .menu-btn {
-    display: none;
-  }
-
   .menu-btn-after {
     display: none;
+    z-index: 999;
+  }
+
+  /* CONTAINER */
+
+  .container {
+    overflow: hidden;
+    background-image: var(--mobile-home);
+    background-position: bottom;
+  }
+
+  .source-select {
+    font-size: 1.1em;
   }
 
   /* NAVBAR */
-  /* SECTION 1 */
-  /* SECTION 2 */
-  /* SECTION 3 */
-  /* FOOTER */
+
+  .navbar {
+    position: fixed;
+    padding: 0;
+    background-color: rgb(20, 195, 142);
+  }
+
+  .navbar .nav-links ul li {
+    margin: 0px 0;
+    font-size: 1.4em;
+  }
+
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(20, 195, 142);
+    text-shadow: none;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -100%;
+  }
+
+  .nav-links.mobile-menu {
+    z-index: 999;
+    margin-left: 0;
+    transition: all 0.5s ease;
+  }
+
+  .nav-links.mobile-menu2 {
+    z-index: 999;
+    margin-left: -100%;
+    transition: all 0.5s ease;
+  }
+
+  .navbar .nav-links ul {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a:hover {
+    color: rgb(255,250,250);
+    text-decoration: none;
+  }
+
+    /* WRAPPER */
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+
+    /* INCOME SECTION */
+
+  .income-section {
+    transform: scale(0.80);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 50vw;
+    box-sizing: border-box;
+    background: transparent;
+    font-size: 120%;
+    text-align: center;
+  }
+
+  .income-section form input {
+    margin: 2em;
+    padding: 1em;
+    border-radius: 2em;
+    font-size: 1em;
+  }
+
+  .income-section form .circle {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .income-section form .circle-grow {
+    width: 260px;
+    height: 260px;
+  }
+
+  .income-section .income-title {
+    font-size: 1.3em;
+    margin: 2em;
+  }
+
+  .income-section form .income-how h1 {
+    font-size: 2.5em;
+  }
+
+  .income-section button {
+    width: 180px;
+    height: 50px;
+    font-size: 1.2em;
+  }
+
+    /* SPEND SECTION */
+
+  .spend-section {
+    transform: scale(0.80);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45vh;
+    width: 50vw;
+    box-sizing: border-box;
+    background: transparent;
+    font-size: 120%;
+    text-align: center;
+  }
+
+  .spend-section form input {
+    margin: 2em;
+    padding: 1em;
+    border-radius: 2em;
+    font-size: 1em;
+  }
+
+  .spend-section form .circle {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .spend-section form .circle-grow {
+    width: 260px;
+    height: 260px;
+  }
+
+  .spend-section .spend-title {
+    font-size: 1.3em;
+    margin: 2em;
+  }
+
+  .spend-section form .spend-how h1 {
+    font-size: 2.5em;
+  }
+
+  .spend-section button {
+    width: 180px;
+    height: 50px;
+    font-size: 1.2em;
+  }
 
 }
 
@@ -624,5 +982,27 @@ input[type=number]::-webkit-outer-spin-button {
   /* SECTION 2 */
   /* SECTION 3 */
   /* FOOTER */
+
+}
+
+/* ######################################## 4K 2560px ######################################## */
+
+@media only screen and (min-width: 2560px) {
+  
+  .menu-btn {
+    display: none;
+  }
+
+  .menu-btn-after {
+    display: none;
+  }
+
+  .income-section {
+    transform: scale(1.50);
+  }
+
+  .spend-section {
+    transform: scale(1.50);
+  }
 
 }

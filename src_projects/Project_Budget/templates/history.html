@@ -23,6 +23,7 @@
                 </ul>
             </div>
             <img src="{% static 'images/menu-btn.png' %}" class="menu-btn">
+            <img src="{% static 'images/menu-btn-after.png' %}" class="menu-btn-after">
         </nav>
         <div class="history-container">
             <ul class="history-list">
@@ -35,7 +36,9 @@
                 {% endfor %}
               {% else %}
                 <li class="empty-message">
-                  <h1>History is empty</h1>
+                  <div class="empty">
+                    <h1>History is empty</h1>
+                  </div>
                 </li>
               {% endif %}
             </ul>

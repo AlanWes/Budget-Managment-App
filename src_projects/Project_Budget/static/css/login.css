@@ -19,6 +19,7 @@ body {
   background-image: var(--background-image);
   background-size: cover;
   background-position: center;
+  background-color: rgb(20, 195, 142);
 }
 
 .container {
@@ -45,12 +46,12 @@ body {
   padding: 2em;
   border-radius: 1em;
   color: rgb(255,250,250);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .reg-box h1 {
   font-size: 3em;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* FORM BOX STYLE */
