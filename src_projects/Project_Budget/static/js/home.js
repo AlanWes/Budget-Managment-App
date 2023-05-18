@@ -25,16 +25,36 @@ menubtn2.addEventListener('click',()=>{
 
 ///CHANGE MONEY DISPLAY
 
-var timeRanges = ["THIS WEEK", "THIS MONTH", "THIS YEAR"];
-var rangeIndex = 0;
-var rangeSpan = document.querySelector(".time-range span");
+const timeRanges = document.querySelectorAll('.time-range');
 
-document.querySelector(".time-range i:first-child").addEventListener("click", function() {
-    rangeIndex = (rangeIndex > 0) ? rangeIndex - 1 : timeRanges.length - 1;
-    rangeSpan.innerText = timeRanges[rangeIndex];
+timeRanges.forEach(function(timeRange) {
+  const leftArrow = timeRange.querySelector('.fa-chevron-left');
+  const rightArrow = timeRange.querySelector('.fa-chevron-right');
+  const option = timeRange.querySelector('span');
+
+  const options = ['THIS WEEK', 'THIS MONTH', 'THIS YEAR'];
+
+  let currentIndex = options.indexOf(option.textContent);
+
+  // < left
+  leftArrow.addEventListener('click', function() {
+    currentIndex--;
+    if (currentIndex < 0) {
+      currentIndex = options.length - 1;
+    }
+    option.textContent = options[currentIndex];
+  });
+
+  // > right
+  rightArrow.addEventListener('click', function() {
+    currentIndex++;
+    if (currentIndex >= options.length) {
+      currentIndex = 0;
+    }
+    option.textContent = options[currentIndex];
+  });
 });
 
-document.querySelector(".time-range i:last-child").addEventListener("click", function() {
-    rangeIndex = (rangeIndex < timeRanges.length - 1) ? rangeIndex + 1 : 0;
-    rangeSpan.innerText = timeRanges[rangeIndex];
-});
+
+
+
