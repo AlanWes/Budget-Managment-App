@@ -201,6 +201,10 @@ body {
 
 @media only screen and (min-width: 481px) and (max-width: 767px) {
 
+  .menu-btn-after {
+    display: none;
+  }
+
   /* NAVBAR */
   /* SECTION 1 */
   /* SECTION 2 */
@@ -212,6 +216,10 @@ body {
 /* ###################################### LANDSCAPE TABLET 768px — 1023px ###################################### */
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
+
+  .menu-btn-after {
+    display: none;
+  }
 
   /* NAVBAR */
   /* SECTION 1 */
@@ -226,6 +234,14 @@ body {
 
 @media only screen and (min-width: 1024px) and (max-width: 1439px) {
 
+  .menu-btn {
+    display: none;
+  }
+
+  .menu-btn-after {
+    display: none;
+  }
+
   /* NAVBAR */
   /* SECTION 1 */
   /* SECTION 2 */
@@ -239,6 +255,10 @@ body {
 @media only screen and (min-width: 1440px) {
   
   .menu-btn {
+    display: none;
+  }
+
+  .menu-btn-after {
     display: none;
   }
 
