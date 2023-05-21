@@ -23,20 +23,33 @@
                 </ul>
             </div>
             <img src="{% static 'images/menu-btn.png' %}" class="menu-btn">
+            <img src="{% static 'images/menu-btn-after.png' %}" class="menu-btn-after">
         </nav>
         <div class="income">
-            <div class="income-title">
-                <h1>Income Graph</h1>
-                <h2>Check your income history</h2>
+            <div class="wrapper">
+                <div class="income-title">
+                    <h1>Income Graph</h1>
+                    <h2>Check income history</h2>
+                </div>
+                {% if chart_data_1 %}
+                    <img src="data:image/png;base64,{{ chart_data_1 }}" alt="income graph" class="income-graph">
+                {% else %}
+                    <h1 class="empty">No income data available.</h1>
+                {% endif %}
             </div>
-            <img src="data:image/png;base64,{{ chart_data_1 }}" alt="income graph" class="income-graph">
-        </div>
+        </div>        
         <div class="expense">
-            <div class="expense-title">
-                <h1>Expense Graph</h1>
-                <h2>Check your expense history</h2>
+            <div class="wrapper">
+                <div class="expense-title">
+                    <h1>Expense Graph</h1>
+                    <h2>Check expense history</h2>
+                </div>
+                {% if chart_data_2 %}
+                    <img src="data:image/png;base64,{{ chart_data_2 }}" alt="income graph" class="expense-graph">
+                {% else %}
+                    <h1 class="empty">No expense data available.</h1>
+                {% endif %}
             </div>
-            <img src="data:image/png;base64,{{ chart_data_2 }}" alt="income graph" class="expense-graph">
         </div>
     </div>
     <!--JS-->

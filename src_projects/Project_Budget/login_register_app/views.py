@@ -14,6 +14,7 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 import base64
+import os
 
 def MasterPage(request):
     return render (request,'master.html')
@@ -138,70 +139,78 @@ colors_expense = {
 @login_required(login_url='login')
 def GraphsPage(request):
     income_data = Income.objects.filter(user=request.user).values('source', 'amount', 'created_at')
-    income_df = pd.DataFrame(list(income_data))
-    income_df['created_at'] = pd.to_datetime(income_df['created_at']).dt.to_period('M')
-    income_df['amount'] = income_df['amount'].astype('float')
-    income_df = income_df.groupby(['created_at', 'source']).sum().replace('', np.nan).reset_index()
-    income_df['source'] = income_df['source'].fillna('')
+    if income_data.exists():
+        income_df = pd.DataFrame(list(income_data))
+        income_df['created_at'] = pd.to_datetime(income_df['created_at']).dt.to_period('M')
+        income_df['amount'] = income_df['amount'].astype('float')
+        income_df = income_df.groupby(['created_at', 'source']).sum().replace('', np.nan).reset_index()
+        income_df['source'] = income_df['source'].fillna('')
 
-    expense_data = Expense.objects.filter(user=request.user).values('source', 'amount', 'created_at')
-    expense_df = pd.DataFrame(list(expense_data))
-    expense_df['created_at'] = pd.to_datetime(expense_df['created_at']).dt.to_period('M')
-    expense_df['amount'] = expense_df['amount'].astype('float')
-    expense_df = expense_df.groupby(['created_at', 'source']).sum().replace('', np.nan).reset_index()
-    expense_df['source'] = expense_df['source'].fillna('')
+        expense_data = Expense.objects.filter(user=request.user).values('source', 'amount', 'created_at')
+        expense_df = pd.DataFrame(list(expense_data))
+        expense_df['created_at'] = pd.to_datetime(expense_df['created_at']).dt.to_period('M')
+        expense_df['amount'] = expense_df['amount'].astype('float')
+        expense_df = expense_df.groupby(['created_at', 'source']).sum().replace('', np.nan).reset_index()
+        expense_df['source'] = expense_df['source'].fillna('')
 
-    today = datetime.today()
-    months = pd.date_range(start=f'{today.year}-01-01', end=f'{today.year}-12-01', freq='MS').to_period('M')
+        today = datetime.today()
+        months = pd.date_range(start=f'{today.year}-01-01', end=f'{today.year}-12-01', freq='MS').to_period('M')
 
-    income_sources = ['business', 'e_commerce', 'employment', 'intellectual', 'investment', 'other', 'rental', 'social_security']
-    empty_income_df = pd.DataFrame({'created_at': months})
-    for source in income_sources:
-        empty_income_df[source] = np.nan
-    income_df = pd.concat([income_df, empty_income_df], ignore_index=True)
-    income_df = income_df.sort_values('created_at')
-    income_df = income_df.replace(np.nan, '', regex=True)
-    income_df = income_df.pivot(index='created_at', columns='source', values='amount').fillna(0)
-    income_df = income_df.reindex(columns=[x for x in colors_income.keys()])
+        income_sources = ['business', 'e_commerce', 'employment', 'intellectual', 'investment', 'other', 'rental', 'social_security']
+        empty_income_df = pd.DataFrame({'created_at': months})
+        for source in income_sources:
+            empty_income_df[source] = np.nan
+        income_df = pd.concat([income_df, empty_income_df], ignore_index=True)
+        income_df = income_df.sort_values('created_at')
+        income_df = income_df.replace(np.nan, '', regex=True)
+        income_df = income_df.pivot(index='created_at', columns='source', values='amount').fillna(0)
+        income_df = income_df.reindex(columns=[x for x in colors_income.keys()])
 
-    expense_sources = ['house', 'food', 'clothes', 'transport', 'entertaiment', 'utility', 'loan', 'healthcare', 'invest', 'other']
-    empty_expense_df = pd.DataFrame({'created_at': months})
-    for source in expense_sources:
-        empty_expense_df[source] = np.nan
-    expense_df = pd.concat([expense_df, empty_expense_df], ignore_index=True)
-    expense_df = expense_df.sort_values('created_at')
-    expense_df = expense_df.replace(np.nan, '', regex=True)
-    expense_df = expense_df.pivot(index='created_at', columns='source', values='amount').fillna(0)
-    expense_df = expense_df.reindex(columns=[x for x in colors_expense.keys()])
+        expense_sources = ['house', 'food', 'clothes', 'transport', 'entertaiment', 'utility', 'loan', 'healthcare', 'invest', 'other']
+        empty_expense_df = pd.DataFrame({'created_at': months})
+        for source in expense_sources:
+            empty_expense_df[source] = np.nan
+        expense_df = pd.concat([expense_df, empty_expense_df], ignore_index=True)
+        expense_df = expense_df.sort_values('created_at')
+        expense_df = expense_df.replace(np.nan, '', regex=True)
+        expense_df = expense_df.pivot(index='created_at', columns='source', values='amount').fillna(0)
+        expense_df = expense_df.reindex(columns=[x for x in colors_expense.keys()])
 
-    chart1 = income_df[income_df.columns.intersection(income_sources)].plot(kind='bar', stacked=True, figsize=(12, 8), color=[colors_income.get(x, 'red') for x in income_df.columns])
-    chart1.set_xlabel('Month')
-    chart1.set_ylabel('Amount')
-    chart1.set_title('Cash inflow per source per month')
-    chart1.legend(title='Source', loc='upper left')
-    chart1.figure.set_facecolor('#FFFAFA')
+        chart1 = income_df[income_df.columns.intersection(income_sources)].plot(kind='bar', stacked=True, figsize=(12, 8), color=[colors_income.get(x, 'red') for x in income_df.columns])
+        chart1.set_xlabel('Month')
+        chart1.set_ylabel('Amount')
+        chart1.set_title('Cash inflow per source per month')
+        chart1.legend(title='Source', loc='upper left')
+        chart1.figure.set_facecolor('#FFFAFA')
 
-    chart2 = expense_df[expense_df.columns.intersection(expense_sources)].plot(kind='bar', stacked=True, figsize=(12, 8), color=[colors_expense.get(x, 'red') for x in expense_df.columns])
-    chart2.set_xlabel('Month')
-    chart2.set_ylabel('Amount')
-    chart2.set_title('Cash outflow per source per month')
-    chart2.legend(title='Source', loc='upper left')
-    chart2.figure.set_facecolor('#FFFAFA')
+        chart2 = expense_df[expense_df.columns.intersection(expense_sources)].plot(kind='bar', stacked=True, figsize=(12, 8), color=[colors_expense.get(x, 'red') for x in expense_df.columns])
+        chart2.set_xlabel('Month')
+        chart2.set_ylabel('Amount')
+        chart2.set_title('Cash outflow per source per month')
+        chart2.legend(title='Source', loc='upper left')
+        chart2.figure.set_facecolor('#FFFAFA')
 
-    chart1.figure.tight_layout()
-    chart2.figure.tight_layout()
-    chart1.figure.savefig('chart1.png')
-    chart2.figure.savefig('chart2.png')
+        chart1.figure.tight_layout()
+        chart2.figure.tight_layout()
+        chart1.figure.savefig('chart1.png')
+        chart2.figure.savefig('chart2.png')
 
-    with open('chart1.png', 'rb') as f:
-        chart_data_1 = f.read()
-        chart_data_1_base64 = base64.b64encode(chart_data_1).decode('utf-8')
+        with open('chart1.png', 'rb') as f:
+            chart_data_1 = f.read()
+            chart_data_1_base64 = base64.b64encode(chart_data_1).decode('utf-8')
 
-    with open('chart2.png', 'rb') as f:
-        chart_data_2 = f.read()
-        chart_data_2_base64 = base64.b64encode(chart_data_2).decode('utf-8')
+        with open('chart2.png', 'rb') as f:
+            chart_data_2 = f.read()
+            chart_data_2_base64 = base64.b64encode(chart_data_2).decode('utf-8')
+
+        os.remove('chart1.png')
+        os.remove('chart2.png')
+    else:
+        chart_data_1_base64 = None
+        chart_data_2_base64 = None
 
     return render(request, 'graphs.html', {'chart_data_1': chart_data_1_base64, 'chart_data_2': chart_data_2_base64})
+
 
 @login_required(login_url='login')
 def GoalsPage(request):
