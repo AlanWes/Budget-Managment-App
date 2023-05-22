@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
   --back-top: url('/static/images/back-top.png');
   --finished: url('/static/images/finished.png');
   --list: url('/static/images/list.png');
   --create: url('/static/images/create.png');
+  --select: url('/static/images/select.png');
 }
 
 * {
@@ -15,15 +16,15 @@
 }
 
 body {
-  font-family: 'Poppins';
+  font-family: 'Montserrat';
   font-weight: 400;
 }
 
 .container {
   overflow: hidden;
   background-image: var(--back-top);
-  background-position: top center;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .underline {
@@ -53,10 +54,12 @@ input[type=number]::-webkit-outer-spin-button {
   height: 10vh;
   width: 100vw;
   max-width: 100%;
-  background-color: transparent;
   background-size: cover;
   box-sizing: border-box;
   z-index: 999;
+  font-size: large;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .navbar a {
@@ -67,7 +70,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .navbar a:hover {
-  color: rgb(255,250,250, 0.8);
+  color: rgb(255,250,250, 0.85);
   text-decoration: underline;
 }
 
@@ -93,6 +96,14 @@ input[type=number]::-webkit-outer-spin-button {
   position: absolute;
   right: 20px;
   width: 60px;
+  z-index: 999;
+}
+
+.navbar .menu-btn-after {
+  position: absolute;
+  right: 20px;
+  width: 60px;
+  z-index: 999;
 }
 
 /* MAIN APP */
@@ -134,7 +145,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .main .create h1 {
   color: rgb(255,250,250);
-  text-shadow: 2px 1px 3px rgb(0,0,0, 0.5);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .main .create .create-img {
@@ -157,7 +168,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .main .list h1 {
   color: rgb(255,250,250);
-  text-shadow: 2px 1px 3px rgb(0,0,0, 0.5);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .main .list .list-img {
@@ -180,7 +191,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .main .finished h1 {
   color: rgb(255,250,250);
-  text-shadow: 2px 1px 3px rgb(0,0,0, 0.5);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .main .finished .finished-img {
@@ -215,7 +226,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .goals-create .wrapper .goals-title {
   color: rgb(255,250,250);
-  text-shadow: 2px 1px 3px rgb(0,0,0, 0.5);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   text-align: center;
   padding-bottom: 1em;
   font-size: 1.6em;
@@ -225,7 +236,7 @@ input[type=number]::-webkit-outer-spin-button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 1em;
+  padding-bottom: 0.5em;
 }
 
 .goals-create .wrapper form input {
@@ -286,7 +297,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .goals-list .goals-title {
   color: rgb(255,250,250);
-  text-shadow: 2px 1px 3px rgb(0,0,0, 0.5);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   text-align: center;
   padding-bottom: 1em;
   font-size: 1.6em;
@@ -296,7 +307,7 @@ input[type=number]::-webkit-outer-spin-button {
   display: block;
   height: 60vh;
   color: rgb(255,250,250);
-  text-shadow: 2px 1px 3px rgb(0,0,0, 0.5);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   background-color: rgb(18, 172, 125);
   padding: 1em;
   border-radius: 2em;
@@ -373,7 +384,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .goals-finished .goals-title {
   color: rgb(255,250,250);
-  text-shadow: 2px 1px 3px rgb(0,0,0, 0.5);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   text-align: center;
   padding-bottom: 1em;
   font-size: 1.6em;
@@ -383,7 +394,7 @@ input[type=number]::-webkit-outer-spin-button {
   display: block;
   height: 60vh;
   color: rgb(255,250,250);
-  text-shadow: 2px 1px 3px rgb(0,0,0, 0.5);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   background-color: rgb(18, 172, 125);
   padding: 1em;
   border-radius: 2em;
@@ -417,20 +428,28 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: #9c9c9c;
 }
 
-/* select */
+/* SOURCE SELECT */
 
 .source-select {
+  display: flex;
+  width: 190px;
+  height: fit-content;
   color: rgb(255,250,250);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   text-align: center;
   font-weight: 700;
-  font-size: 0.9em;
-  appearance: none;
+  font-size: large;
   border: none;
+  appearance: none;
   background-color: transparent;
-  padding: 0.5em 0.5em;
-  padding-bottom: 1em;
-  width: 60%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 0.5em;
   cursor: pointer;
+  background-image: var(--select);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 15px;
 }
 
 .source-select:focus {
@@ -453,11 +472,188 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
 
+  .menu-btn-after {
+    display: none;
+  }
+
   /* NAVBAR */
-  /* SECTION 1 */
-  /* SECTION 2 */
-  /* SECTION 3 */
-  /* FOOTER */
+
+  .navbar .nav-links ul li {
+    margin: 0px 0;
+    font-size: 1.4em;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(20, 195, 142);
+    text-shadow: none;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -100%;
+  }
+
+  .nav-links.mobile-menu {
+    margin-left: 0;
+    transition: all 0.5s ease;
+    z-index: 999;
+  }
+
+  .nav-links.mobile-menu2 {
+    margin-left: -100%;
+    transition: all 0.5s ease;
+    z-index: 999;
+  }
+
+  .navbar .nav-links ul {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a:hover {
+    color: rgb(255,250,250);
+    text-decoration: none;
+  }
+
+  /* MAIN NAVIGATOR */
+
+  .main {
+    transform: scale(0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+  }
+
+  .main .create button {
+    background-color: rgb(20, 177, 130);
+  }
+
+  /* CREATE */
+
+  .goals-create .wrapper {
+    padding: 1em;
+  }
+
+  .goals-create .wrapper .goals-title {
+    padding-bottom: 1em;
+    font-size: large;
+  }
+
+  .goals-create .wrapper form {
+    padding-bottom: 0.5em;
+  }
+
+  .goals-create .wrapper form input {
+    padding: 0.5em;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: small;
+  }
+
+  .goals-create .wrapper form button {
+    width: 100px;
+    height: 30px;
+    font-size: small;
+  }
+
+  .goals-create .wrapper .back-btn1 button {
+    width: 80px;
+    height: 25px;
+    font-size: small;
+    font-weight: 600;
+  }
+
+  /* LIST */
+
+  .goals-list .goals-title {
+    font-size: large;
+  }
+
+  .goals-list table {
+    display: block;
+    height: 50vh;
+    padding: 0.25em;
+    overflow: hidden;
+    border-radius: 1em;
+  }
+
+  .goals-list table td {
+    padding: 0.25em;
+    font-size: smaller;
+  }
+
+  .goals-list table th {
+    padding: 0.25em;
+    font-size: smaller;
+  }
+  
+  .goals-list .back-btn2 button {
+    width: 80px;
+    height: 25px;
+    font-size: small;
+    font-weight: 600;
+  }
+
+  .goals-list .finished-btn {
+    width: 30px;
+    height: 20px;
+    font-size: smaller;
+    font-weight: 600;
+    border-radius: 1em;
+  }
+
+  .goals-list .delete-btn {
+    width: 30px;
+    height: 20px;
+    font-size: smaller;
+    font-weight: 600;
+    border-radius: 1em;
+  }
+
+  /* FINISHED */
+
+  .goals-finished .goals-title {
+    font-size: large;
+  }
+
+  .goals-finished table {
+    display: block;
+    height: 50vh;
+    padding: 0.25em;
+    overflow: hidden;
+    border-radius: 1em;
+  }
+
+  .goals-finished table td {
+    padding: 0.25em;
+    font-size: smaller;
+  }
+
+  .goals-finished table th {
+    padding: 0.25em;
+    font-size: smaller;
+  }
+
+  .goals-finished .back-btn3 button {
+    width: 80px;
+    height: 25px;
+    font-size: small;
+    font-weight: 600;
+  }
 
 }
 
@@ -465,11 +661,188 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media only screen and (min-width: 481px) and (max-width: 767px) {
 
+  .menu-btn-after {
+    display: none;
+  }
+
   /* NAVBAR */
-  /* SECTION 1 */
-  /* SECTION 2 */
-  /* SECTION 3 */
-  /* FOOTER */
+
+  .navbar .nav-links ul li {
+    margin: 0px 0;
+    font-size: 1.4em;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(20, 195, 142);
+    text-shadow: none;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -100%;
+  }
+
+  .nav-links.mobile-menu {
+    margin-left: 0;
+    transition: all 0.5s ease;
+    z-index: 999;
+  }
+
+  .nav-links.mobile-menu2 {
+    margin-left: -100%;
+    transition: all 0.5s ease;
+    z-index: 999;
+  }
+
+  .navbar .nav-links ul {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a:hover {
+    color: rgb(255,250,250);
+    text-decoration: none;
+  }
+
+  /* MAIN NAVIGATOR */
+
+  .main {
+    transform: scale(0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+  }
+
+  .main .create button {
+    background-color: rgb(20, 177, 130);
+  }
+
+  /* CREATE */
+
+  .goals-create .wrapper {
+    padding: 1em;
+  }
+
+  .goals-create .wrapper .goals-title {
+    padding-bottom: 1em;
+    font-size: large;
+  }
+
+  .goals-create .wrapper form {
+    padding-bottom: 0.5em;
+  }
+
+  .goals-create .wrapper form input {
+    padding: 0.5em;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: small;
+  }
+
+  .goals-create .wrapper form button {
+    width: 100px;
+    height: 30px;
+    font-size: small;
+  }
+
+  .goals-create .wrapper .back-btn1 button {
+    width: 80px;
+    height: 25px;
+    font-size: small;
+    font-weight: 600;
+  }
+
+  /* LIST */
+
+  .goals-list .goals-title {
+    font-size: large;
+  }
+
+  .goals-list table {
+    display: block;
+    height: 50vh;
+    padding: 0.25em;
+    overflow: hidden;
+    border-radius: 1em;
+  }
+
+  .goals-list table td {
+    padding: 0.25em;
+    font-size: smaller;
+  }
+
+  .goals-list table th {
+    padding: 0.25em;
+    font-size: smaller;
+  }
+  
+  .goals-list .back-btn2 button {
+    width: 80px;
+    height: 25px;
+    font-size: small;
+    font-weight: 600;
+  }
+
+  .goals-list .finished-btn {
+    width: 30px;
+    height: 20px;
+    font-size: smaller;
+    font-weight: 600;
+    border-radius: 1em;
+  }
+
+  .goals-list .delete-btn {
+    width: 30px;
+    height: 20px;
+    font-size: smaller;
+    font-weight: 600;
+    border-radius: 1em;
+  }
+
+  /* FINISHED */
+
+  .goals-finished .goals-title {
+    font-size: large;
+  }
+
+  .goals-finished table {
+    display: block;
+    height: 50vh;
+    padding: 0.25em;
+    overflow: hidden;
+    border-radius: 1em;
+  }
+
+  .goals-finished table td {
+    padding: 0.25em;
+    font-size: smaller;
+  }
+
+  .goals-finished table th {
+    padding: 0.25em;
+    font-size: smaller;
+  }
+
+  .goals-finished .back-btn3 button {
+    width: 80px;
+    height: 25px;
+    font-size: small;
+    font-weight: 600;
+  }
 
 }
 
@@ -477,11 +850,188 @@ input[type=number]::-webkit-outer-spin-button {
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
 
+  .menu-btn-after {
+    display: none;
+  }
+
   /* NAVBAR */
-  /* SECTION 1 */
-  /* SECTION 2 */
-  /* SECTION 3 */
-  /* FOOTER */
+
+  .navbar .nav-links ul li {
+    margin: 0px 0;
+    font-size: 1.4em;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(20, 195, 142);
+    text-shadow: none;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -100%;
+  }
+
+  .nav-links.mobile-menu {
+    margin-left: 0;
+    transition: all 0.5s ease;
+    z-index: 999;
+  }
+
+  .nav-links.mobile-menu2 {
+    margin-left: -100%;
+    transition: all 0.5s ease;
+    z-index: 999;
+  }
+
+  .navbar .nav-links ul {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar a:hover {
+    color: rgb(255,250,250);
+    text-decoration: none;
+  }
+
+  /* MAIN NAVIGATOR */
+
+  .main {
+    transform: scale(0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+  }
+
+  .main .create button {
+    background-color: rgb(20, 177, 130);
+  }
+
+  /* CREATE */
+
+  .goals-create .wrapper {
+    padding: 1em;
+  }
+
+  .goals-create .wrapper .goals-title {
+    padding-bottom: 1em;
+    font-size: large;
+  }
+
+  .goals-create .wrapper form {
+    padding-bottom: 0.5em;
+  }
+
+  .goals-create .wrapper form input {
+    padding: 0.5em;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: small;
+  }
+
+  .goals-create .wrapper form button {
+    width: 100px;
+    height: 30px;
+    font-size: small;
+  }
+
+  .goals-create .wrapper .back-btn1 button {
+    width: 80px;
+    height: 25px;
+    font-size: small;
+    font-weight: 600;
+  }
+
+  /* LIST */
+
+  .goals-list .goals-title {
+    font-size: large;
+  }
+
+  .goals-list table {
+    display: block;
+    height: 50vh;
+    padding: 0.25em;
+    overflow: hidden;
+    border-radius: 1em;
+  }
+
+  .goals-list table td {
+    padding: 0.25em;
+    font-size: medium;
+  }
+
+  .goals-list table th {
+    padding: 0.25em;
+    font-size: medium;
+  }
+  
+  .goals-list .back-btn2 button {
+    width: 80px;
+    height: 25px;
+    font-size: small;
+    font-weight: 600;
+  }
+
+  .goals-list .finished-btn {
+    width: 30px;
+    height: 20px;
+    font-size: smaller;
+    font-weight: 600;
+    border-radius: 1em;
+  }
+
+  .goals-list .delete-btn {
+    width: 30px;
+    height: 20px;
+    font-size: smaller;
+    font-weight: 600;
+    border-radius: 1em;
+  }
+
+  /* FINISHED */
+
+  .goals-finished .goals-title {
+    font-size: large;
+  }
+
+  .goals-finished table {
+    display: block;
+    height: 50vh;
+    padding: 0.25em;
+    overflow: hidden;
+    border-radius: 1em;
+  }
+
+  .goals-finished table td {
+    padding: 0.25em;
+    font-size: medium;
+  }
+
+  .goals-finished table th {
+    padding: 0.25em;
+    font-size: medium;
+  }
+
+  .goals-finished .back-btn3 button {
+    width: 80px;
+    height: 25px;
+    font-size: small;
+    font-weight: 600;
+  }
 
 }
 
@@ -489,6 +1039,14 @@ input[type=number]::-webkit-outer-spin-button {
 /* ##################################### DESKTOP 1024px — 1439px ###################################### */
 
 @media only screen and (min-width: 1024px) and (max-width: 1439px) {
+
+  .menu-btn {
+    display: none;
+  }
+
+  .menu-btn-after {
+    display: none;
+  }
 
   /* NAVBAR */
   /* SECTION 1 */
@@ -503,6 +1061,10 @@ input[type=number]::-webkit-outer-spin-button {
 @media only screen and (min-width: 1440px) {
   
   .menu-btn {
+    display: none;
+  }
+
+  .menu-btn-after {
     display: none;
   }
 
