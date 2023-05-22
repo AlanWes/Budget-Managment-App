@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/goals.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-...some long hash code..." crossorigin="anonymous" />
 </head>
 <body>
     <div class="container">
@@ -23,6 +24,7 @@
                 </ul>
             </div>
             <img src="{% static 'images/menu-btn.png' %}" class="menu-btn">
+            <img src="{% static 'images/menu-btn-after.png' %}" class="menu-btn-after">
         </nav>
         <div class="main">
             <div class="create">
@@ -49,7 +51,7 @@
                         <h1>Create a Goal</h1>
                     </div>
                     <input type="text" name="goal_name" placeholder="Name your goal" required>
-                    <input type="number" step="0.01" name="goal_number" placeholder="How much money" required>
+                    <input type="number" step="0.01" name="goal_number" placeholder="How much (€)" required>
                     <select name="source_income" class="source-select" required>
                         <option value="" selected disabled hidden>Select type of goal</option>
                         <option value="vacation">Vacation / travel</option>
@@ -83,28 +85,32 @@
                 </thead>
                 <tbody>
                     {% for goal in goals %}
-                    {% if not goal.is_finished %}
+                    {% if not goal.is_finished and goal.user == request.user %}
                     <form action="" method="POST">
-                        {% csrf_token %}
-                        <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{ goal.goal_name }}</td>
-                            <td>{{ goal.goal_number }}</td>
-                            <td>{{ goal.source_income }}</td>
-                            <input type="hidden" name="goal_id" value="{{ goal.id }}">
-                            <input type="hidden" name="goal_name" value="{{ goal.goal_name }}">
-                            <input type="hidden" name="goal_number" value="{{ goal.goal_number }}">
-                            <input type="hidden" name="source_income" value="{{ goal.source_income }}">
-                            <td>
-                                <button class="finished-btn" type="submit" name="button" value="finished">Finished</button>
-                            </td>
-                            <td>
-                                <button class="delete-btn" type="submit" name="button" value="delete">Delete</button>
-                            </td>
-                        </tr>
+                      {% csrf_token %}
+                      <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ goal.goal_name }}</td>
+                        <td>{{ goal.goal_number }} €</td>
+                        <td>{{ goal.source_income }}</td>
+                        <input type="hidden" name="goal_id" value="{{ goal.id }}">
+                        <input type="hidden" name="goal_name" value="{{ goal.goal_name }}">
+                        <input type="hidden" name="goal_number" value="{{ goal.goal_number }}">
+                        <input type="hidden" name="source_income" value="{{ goal.source_income }}">
+                        <td>
+                            <button class="finished-btn" type="submit" name="button" value="finished">
+                              <i class="fas fa-check"></i>
+                            </button>
+                          </td>
+                          <td>
+                            <button class="delete-btn" type="submit" name="button" value="delete">
+                              <i class="fas fa-trash-alt"></i>
+                            </button>
+                          </td>                          
+                      </tr>
                     </form>
                     {% endif %}
-                    {% endfor %}
+                  {% endfor %}                  
                 </tbody>
             </table>  
             <div class="back-btn2">
@@ -120,21 +126,21 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Goal amount</th>
-                        <th>Source of goal</th>
+                        <th>Amount</th>
+                        <th>Source</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for goal in goals %}
-                    {% if goal.is_finished %}
+                      {% if goal.is_finished and goal.user == request.user %}
                         <tr>
                             <td>{{ forloop.counter }}</td>
                             <td>{{ goal.goal_name }}</td>
-                            <td>{{ goal.goal_number }}</td>
+                            <td>{{ goal.goal_number }} €</td>
                             <td>{{ goal.source_income }}</td>
                         </tr>
-                    {% endif %}
-                    {% endfor %}
+                      {% endif %}
+                    {% endfor %}         
                 </tbody>
             </table> 
             <div class="back-btn3">

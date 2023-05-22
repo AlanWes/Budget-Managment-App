@@ -139,19 +139,14 @@ colors_expense = {
 @login_required(login_url='login')
 def GraphsPage(request):
     income_data = Income.objects.filter(user=request.user).values('source', 'amount', 'created_at')
+    expense_data = Expense.objects.filter(user=request.user).values('source', 'amount', 'created_at')
+
     if income_data.exists():
         income_df = pd.DataFrame(list(income_data))
         income_df['created_at'] = pd.to_datetime(income_df['created_at']).dt.to_period('M')
         income_df['amount'] = income_df['amount'].astype('float')
         income_df = income_df.groupby(['created_at', 'source']).sum().replace('', np.nan).reset_index()
         income_df['source'] = income_df['source'].fillna('')
-
-        expense_data = Expense.objects.filter(user=request.user).values('source', 'amount', 'created_at')
-        expense_df = pd.DataFrame(list(expense_data))
-        expense_df['created_at'] = pd.to_datetime(expense_df['created_at']).dt.to_period('M')
-        expense_df['amount'] = expense_df['amount'].astype('float')
-        expense_df = expense_df.groupby(['created_at', 'source']).sum().replace('', np.nan).reset_index()
-        expense_df['source'] = expense_df['source'].fillna('')
 
         today = datetime.today()
         months = pd.date_range(start=f'{today.year}-01-01', end=f'{today.year}-12-01', freq='MS').to_period('M')
@@ -166,6 +161,33 @@ def GraphsPage(request):
         income_df = income_df.pivot(index='created_at', columns='source', values='amount').fillna(0)
         income_df = income_df.reindex(columns=[x for x in colors_income.keys()])
 
+        chart1 = income_df[income_df.columns.intersection(income_sources)].plot(kind='bar', stacked=True, figsize=(12, 8), color=[colors_income.get(x, 'red') for x in income_df.columns])
+        chart1.set_xlabel('Month')
+        chart1.set_ylabel('Amount')
+        chart1.set_title('Cash inflow per source per month')
+        chart1.legend(title='Source', loc='upper left')
+        chart1.figure.set_facecolor('#FFFAFA')
+
+        chart1.figure.tight_layout()
+        chart1.figure.savefig('chart1.png')
+
+        with open('chart1.png', 'rb') as f:
+            chart_data_1 = f.read()
+            chart_data_1_base64 = base64.b64encode(chart_data_1).decode('utf-8')
+
+    else:
+        chart_data_1_base64 = None
+
+    if expense_data.exists():
+        expense_df = pd.DataFrame(list(expense_data))
+        expense_df['created_at'] = pd.to_datetime(expense_df['created_at']).dt.to_period('M')
+        expense_df['amount'] = expense_df['amount'].astype('float')
+        expense_df = expense_df.groupby(['created_at', 'source']).sum().replace('', np.nan).reset_index()
+        expense_df['source'] = expense_df['source'].fillna('')
+
+        today = datetime.today()
+        months = pd.date_range(start=f'{today.year}-01-01', end=f'{today.year}-12-01', freq='MS').to_period('M')
+
         expense_sources = ['house', 'food', 'clothes', 'transport', 'entertaiment', 'utility', 'loan', 'healthcare', 'invest', 'other']
         empty_expense_df = pd.DataFrame({'created_at': months})
         for source in expense_sources:
@@ -176,13 +198,6 @@ def GraphsPage(request):
         expense_df = expense_df.pivot(index='created_at', columns='source', values='amount').fillna(0)
         expense_df = expense_df.reindex(columns=[x for x in colors_expense.keys()])
 
-        chart1 = income_df[income_df.columns.intersection(income_sources)].plot(kind='bar', stacked=True, figsize=(12, 8), color=[colors_income.get(x, 'red') for x in income_df.columns])
-        chart1.set_xlabel('Month')
-        chart1.set_ylabel('Amount')
-        chart1.set_title('Cash inflow per source per month')
-        chart1.legend(title='Source', loc='upper left')
-        chart1.figure.set_facecolor('#FFFAFA')
-
         chart2 = expense_df[expense_df.columns.intersection(expense_sources)].plot(kind='bar', stacked=True, figsize=(12, 8), color=[colors_expense.get(x, 'red') for x in expense_df.columns])
         chart2.set_xlabel('Month')
         chart2.set_ylabel('Amount')
@@ -190,31 +205,21 @@ def GraphsPage(request):
         chart2.legend(title='Source', loc='upper left')
         chart2.figure.set_facecolor('#FFFAFA')
 
-        chart1.figure.tight_layout()
         chart2.figure.tight_layout()
-        chart1.figure.savefig('chart1.png')
         chart2.figure.savefig('chart2.png')
-
-        with open('chart1.png', 'rb') as f:
-            chart_data_1 = f.read()
-            chart_data_1_base64 = base64.b64encode(chart_data_1).decode('utf-8')
 
         with open('chart2.png', 'rb') as f:
             chart_data_2 = f.read()
             chart_data_2_base64 = base64.b64encode(chart_data_2).decode('utf-8')
 
-        os.remove('chart1.png')
-        os.remove('chart2.png')
     else:
-        chart_data_1_base64 = None
         chart_data_2_base64 = None
 
     return render(request, 'graphs.html', {'chart_data_1': chart_data_1_base64, 'chart_data_2': chart_data_2_base64})
 
-
 @login_required(login_url='login')
 def GoalsPage(request):
-    goals = Goal.objects.all()
+    goals = Goal.objects.filter(user=request.user)
     if request.method == 'POST':
         goal_name = request.POST['goal_name']
         goal_number = request.POST['goal_number']
@@ -226,6 +231,7 @@ def GoalsPage(request):
                 goal_name=goal_name,
                 goal_number=goal_number,
                 source_income=source_income,
+                user=request.user
             )
             return redirect('goals')
         elif button_value == 'finished':
@@ -241,6 +247,7 @@ def GoalsPage(request):
             return redirect('goals')
 
     return render(request, 'goals.html', {'goals': goals})
+
 
 @login_required(login_url='login')
 def TipsPage(request):
