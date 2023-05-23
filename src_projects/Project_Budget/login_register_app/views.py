@@ -265,8 +265,9 @@ def TipsPage(request):
     tip6 = ""
 
     # Tip 1: Check if expenses are greater than income
-    if expense_sum > income_sum:
-        tip1 = "You are spending more money than you are earning. Consider cutting back on your expenses."
+    if not income_sum == None and not expense_sum == None:
+        if expense_sum > income_sum:
+            tip1 = "You are spending more money than you are earning. Consider cutting back on your expenses."
 
     # Tip 2: Analyze your expenses by category
     expense_categories = Expense.objects.filter(user=user).values('source').annotate(total=Sum('amount')).order_by('-total')
@@ -275,20 +276,23 @@ def TipsPage(request):
         tip2 = f"You are spending the most money on {highest_expense['source']}. Consider reducing your spending in this category."
 
     # Tip 3: Set a budget and track your spending
-    if profile.money > 0:
-        budget_percentage = round((expense_sum / profile.money) * 100, 2)
-        if budget_percentage >= 50:
-            tip3 = "You have spent more than 50% of your budget. Consider setting a more realistic budget and tracking your expenses."
+    if not expense_sum == None:
+        if profile.money > 0:
+            budget_percentage = round((expense_sum / profile.money) * 100, 2)
+            if budget_percentage >= 50:
+                tip3 = "You have spent more than 50% of your budget. Consider setting a more realistic budget and tracking your expenses."
 
     # Tip 4: Reduce impulse spending
-    recent_expenses = Expense.objects.filter(user=user).order_by('-created_at')[:5]
-    if all(expense.amount < 20 for expense in recent_expenses):
-        tip4 = "You seem to be making a lot of small impulse purchases. Consider being more mindful of your spending and avoiding unnecessary purchases."
+    if not expense_sum == None:
+        recent_expenses = Expense.objects.filter(user=user).order_by('-created_at')[:5]
+        if all(expense.amount < 20 for expense in recent_expenses):
+            tip4 = "You seem to be making a lot of small impulse purchases. Consider being more mindful of your spending and avoiding unnecessary purchases."
 
     # Tip 5: Avoid unnecessary subscriptions
     entertaiment = Expense.objects.filter(user=user, source='entertaiment').aggregate(Sum('amount'))['amount__sum']
-    if entertaiment > 0:
-        tip5 = "You are spending money on entertaiment. Consider evaluating which ones you really need and canceling the rest."
+    if not entertaiment == None:
+        if entertaiment > 0:
+            tip5 = "You are spending money on entertaiment. Consider evaluating which ones you really need and canceling the rest."
 
     # Tip 6: Shop around for better deals
     if expense_categories:

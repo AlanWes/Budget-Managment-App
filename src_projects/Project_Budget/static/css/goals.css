@@ -18,6 +18,7 @@
 body {
   font-family: 'Montserrat';
   font-weight: 400;
+  background-color: rgb(20, 195, 142);
 }
 
 .container {
@@ -305,7 +306,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .goals-list table {
   display: block;
-  height: 60vh;
+  height: 45vh;
   color: rgb(255,250,250);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   background-color: rgb(18, 172, 125);
@@ -392,7 +393,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .goals-finished table {
   display: block;
-  height: 60vh;
+  height: 45vh;
   color: rgb(255,250,250);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   background-color: rgb(18, 172, 125);
@@ -529,7 +530,6 @@ input[type=number]::-webkit-outer-spin-button {
   /* MAIN NAVIGATOR */
 
   .main {
-    transform: scale(0.6);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -540,6 +540,31 @@ input[type=number]::-webkit-outer-spin-button {
 
   .main .create button {
     background-color: rgb(20, 177, 130);
+  }
+
+  .main .create {
+    width: fit-content;
+    height: 20vh;
+  }
+
+  .main .list {
+    width: fit-content;
+    height: 20vh;
+  }
+
+  .main .finished {
+    width: fit-content;
+    height: 20vh;
+  }
+
+  .main h1 {
+    font-size: medium;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  .main button {
+    width: 80px;
+    font-size: small;
   }
 
   /* CREATE */
@@ -585,7 +610,7 @@ input[type=number]::-webkit-outer-spin-button {
 
   .goals-list table {
     display: block;
-    height: 50vh;
+    height: 45vh;
     padding: 0.25em;
     overflow: hidden;
     border-radius: 1em;
@@ -632,7 +657,7 @@ input[type=number]::-webkit-outer-spin-button {
 
   .goals-finished table {
     display: block;
-    height: 50vh;
+    height: 45vh;
     padding: 0.25em;
     overflow: hidden;
     border-radius: 1em;
@@ -718,7 +743,6 @@ input[type=number]::-webkit-outer-spin-button {
   /* MAIN NAVIGATOR */
 
   .main {
-    transform: scale(0.6);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -729,6 +753,31 @@ input[type=number]::-webkit-outer-spin-button {
 
   .main .create button {
     background-color: rgb(20, 177, 130);
+  }
+
+  .main .create {
+    width: fit-content;
+    height: 20vh;
+  }
+
+  .main .list {
+    width: fit-content;
+    height: 20vh;
+  }
+
+  .main .finished {
+    width: fit-content;
+    height: 20vh;
+  }
+
+  .main h1 {
+    font-size: medium;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  .main button {
+    width: 80px;
+    font-size: small;
   }
 
   /* CREATE */
@@ -774,7 +823,7 @@ input[type=number]::-webkit-outer-spin-button {
 
   .goals-list table {
     display: block;
-    height: 50vh;
+    height: 45vh;
     padding: 0.25em;
     overflow: hidden;
     border-radius: 1em;
@@ -821,7 +870,7 @@ input[type=number]::-webkit-outer-spin-button {
 
   .goals-finished table {
     display: block;
-    height: 50vh;
+    height: 45vh;
     padding: 0.25em;
     overflow: hidden;
     border-radius: 1em;
@@ -907,7 +956,6 @@ input[type=number]::-webkit-outer-spin-button {
   /* MAIN NAVIGATOR */
 
   .main {
-    transform: scale(0.6);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -918,6 +966,31 @@ input[type=number]::-webkit-outer-spin-button {
 
   .main .create button {
     background-color: rgb(20, 177, 130);
+  }
+
+  .main .create {
+    width: fit-content;
+    height: 20vh;
+  }
+
+  .main .list {
+    width: fit-content;
+    height: 20vh;
+  }
+
+  .main .finished {
+    width: fit-content;
+    height: 20vh;
+  }
+
+  .main h1 {
+    font-size: medium;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  .main button {
+    width: 80px;
+    font-size: small;
   }
 
   /* CREATE */
@@ -963,7 +1036,7 @@ input[type=number]::-webkit-outer-spin-button {
 
   .goals-list table {
     display: block;
-    height: 50vh;
+    height: 45vh;
     padding: 0.25em;
     overflow: hidden;
     border-radius: 1em;
@@ -1010,7 +1083,7 @@ input[type=number]::-webkit-outer-spin-button {
 
   .goals-finished table {
     display: block;
-    height: 50vh;
+    height: 45vh;
     padding: 0.25em;
     overflow: hidden;
     border-radius: 1em;
