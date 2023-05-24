@@ -257,6 +257,13 @@ body {
     text-decoration: none;
   }
 
+    /* MAIN */
+
+    .tips .wrapper .tip-box {
+      width: 150px;
+      height: 150px;
+    }
+
 }
 
 /* ###################################### LANDSCAPE TABLET 768px — 1023px ###################################### */
@@ -316,6 +323,13 @@ body {
     color: rgb(255,250,250);
     text-decoration: none;
   }
+
+    /* MAIN */
+
+    .tips .wrapper .tip-box {
+      width: 150px;
+      height: 150px;
+    }
 
 }
 
