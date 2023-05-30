@@ -5,8 +5,10 @@
 ## Account 2 :
 ### Login : <br/>  Password :
 
+## Video presentation :
 
 # Budget Management Application
+## PYTHON | DJANGO | PANDAS | JAVASCRIPT | MYSQL
 #### This is an ongoing project aimed at creating a web application that helps manage your budget. The goal of this project is to provide users with an easy-to-use platform to track their expenses and incomes, and to help them stay on top of their financial goals.
 ## Current Progress
 #### We are currently working on mobile version of the application.
