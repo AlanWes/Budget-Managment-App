@@ -15,6 +15,7 @@ import numpy as np
 import pandas as pd
 import base64
 import os
+        
 
 def MasterPage(request):
     return render (request,'master.html')
